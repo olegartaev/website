@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oleg Artaev — Ichthyology & Freshwater Biodiversity</title>
+  <meta name="description" content="Personal website of Oleg Artaev — ichthyology, freshwater biodiversity and phylogeography.">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: #fff;
+      background: #0b2230;
+    }
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5,18,27,.72) 0%, rgba(5,18,27,.42) 42%, rgba(5,18,27,.12) 72%, rgba(5,18,27,.08) 100%),
+        linear-gradient(0deg, rgba(5,18,27,.25), rgba(5,18,27,.04)),
+        url("background.jpg") center center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      width: min(1380px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 34px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 42px;
+      font-size: 15px;
+      letter-spacing: .01em;
+    }
+    header a {
+      color: rgba(255,255,255,.92);
+      text-decoration: none;
+    }
+    main {
+      width: min(1380px, calc(100% - 64px));
+      margin: auto;
+      padding: 40px 0 110px;
+    }
+    .content {
+      max-width: 900px;
+    }
+    h1 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(64px, 8vw, 126px);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.035em;
+      text-shadow: 0 2px 20px rgba(0,0,0,.16);
+    }
+    .subtitle {
+      margin: 0 0 34px;
+      font-size: clamp(19px, 2vw, 27px);
+      line-height: 1.45;
+      color: rgba(255,255,255,.94);
+    }
+    .coming {
+      margin: 0 0 30px;
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border: 1px solid rgba(255,255,255,.78);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      background: rgba(0,0,0,.06);
+      backdrop-filter: blur(2px);
+    }
+    footer {
+      width: min(1380px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 0 0 24px;
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+    }
+    @media (max-width: 700px) {
+      .hero {
+        background-position: 56% center;
+      }
+      header {
+        width: calc(100% - 36px);
+        padding: 24px 0;
+        gap: 20px;
+        font-size: 13px;
+      }
+      header a:nth-child(1),
+      header a:nth-child(2) {
+        display: none;
+      }
+      main {
+        width: calc(100% - 36px);
+        padding-bottom: 84px;
+      }
+      h1 { font-size: clamp(58px, 18vw, 92px); }
+      .subtitle { max-width: 540px; }
+      footer { width: calc(100% - 36px); }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <header>
+      <a href="#" aria-label="Research">Research</a>
+      <a href="#" aria-label="Publications">Publications</a>
+      <a href="mailto:oleg@olegartaev.com" aria-label="Contact">Contact</a>
+    </header>
+
+    <main>
+      <div class="content">
+        <h1>Oleg Artaev</h1>
+        <p class="subtitle">Ichthyology · Freshwater biodiversity · Phylogeography</p>
+        <p class="coming">Personal website coming soon</p>
+        <span class="button">Coming soon</span>
+      </div>
+    </main>
+
+    <footer>© Oleg Artaev</footer>
+  </section>
+</body>
+</html>
