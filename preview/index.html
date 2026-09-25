@@ -21,9 +21,10 @@ nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-f
 .hero{padding:30px 0 0}
 .heroFrame{min-height:610px;position:relative;overflow:hidden;border:1px solid #cad4d1;
 background:
-linear-gradient(90deg,rgba(9,29,35,.88) 0%,rgba(9,29,35,.63) 45%,rgba(9,29,35,.10) 78%),
-linear-gradient(0deg,rgba(9,29,35,.18),rgba(9,29,35,.02)),
-url("../background.jpg") center center / cover no-repeat}
+linear-gradient(90deg,rgba(9,29,35,.86) 0%,rgba(9,29,35,.60) 43%,rgba(9,29,35,.08) 78%),
+linear-gradient(0deg,rgba(9,29,35,.16),rgba(9,29,35,.01)),
+url("assets/hero-panorama.webp") center center / cover no-repeat,
+url("../background.jpg") center center / cover no-repeat
 .photoTag{position:absolute;right:28px;top:24px;font-size:11px;letter-spacing:.12em;color:#e8f0ed;text-transform:uppercase}
 .heroCopy{position:absolute;left:0;bottom:0;z-index:2;max-width:900px;padding:58px 62px 62px;color:#fff}
 .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--accent);margin-bottom:14px}
@@ -70,7 +71,9 @@ linear-gradient(#eef2f0,#e8edeb)}
 .eye{position:absolute;left:18%;top:45%;width:8px;height:8px;border-radius:50%;background:#263e43;z-index:2}
 .fmeta{display:flex;justify-content:space-between;gap:18px;padding-top:8px;font-size:12px;color:var(--muted)}.fmeta strong{color:var(--ink)}
 .fieldstrip{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:15px;margin-top:30px}
+.fieldgallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px}
 .field{height:250px;border:1px solid var(--line);position:relative;overflow:hidden;background:linear-gradient(180deg,#aebfba,#d9e1de)}
+.fieldgallery .field{height:205px}
 .field:before{content:"";position:absolute;left:-5%;right:-5%;bottom:-12%;height:55%;background:#899f99;border-radius:50% 50% 0 0}
 .field span{position:absolute;left:14px;bottom:12px;background:rgba(255,255,255,.92);padding:5px 8px;font-size:12px}
 .tool{display:grid;grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);gap:70px;align-items:center}
@@ -104,7 +107,7 @@ footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:fl
 @media(max-width:900px){
  .wrap{width:min(var(--max),calc(100% - 30px))}.links{gap:12px;font-size:12px}.links a:nth-child(4),.links a:nth-child(6){display:none}
  .hero{padding-top:15px}.heroFrame{min-height:530px}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool,.imagingIntro{grid-template-columns:1fr;gap:22px}
- .section{padding:64px 0}.fieldstrip,.researchThemes{grid-template-columns:1fr}.theme{border-right:0;border-bottom:1px solid var(--line);padding:15px 0!important}.theme:last-child{border-bottom:0}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}.heroFishVisual{height:260px}
+ .section{padding:64px 0}.fieldstrip,.fieldgallery,.researchThemes{grid-template-columns:1fr}.theme{border-right:0;border-bottom:1px solid var(--line);padding:15px 0!important}.theme:last-child{border-bottom:0}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}.heroFishVisual{height:260px}
 }
 @media(max-width:560px){.links a:not(.contact){display:none}.fish{height:120px}.fishSmallGrid{grid-template-columns:1fr}.row{grid-template-columns:55px 1fr}.row .more{display:none}.heroFishVisual{height:190px}}
 </style>
@@ -136,9 +139,13 @@ footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:fl
 
 
 <section class="section" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Fieldwork</div><h2>Field coverage across Eurasia</h2></div><div class="copy"><p>Freshwater fish sampling across geographically contrasting river systems.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized field coverage</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field coverage</strong><span>Generalized spatial representation; exact sampling localities are not shown.</span></div></div><div class="fieldstrip">
-<div class="field zoomable"><img class="photoAsset" src="assets/field-sampling.jpg" alt="Field sampling" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Sampling</span></div>
-<div class="field zoomable"><img class="photoAsset" src="assets/field-habitat.jpg" alt="Freshwater habitat" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Habitat</span></div>
-<div class="field zoomable"><img class="photoAsset" src="assets/field-documentation.jpg" alt="Specimen documentation" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Specimen documentation</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/field-sampling.webp" alt="Field sampling with a seine" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Sampling</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/habitat-mountain.webp" alt="Mountain stream habitat" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Mountain stream</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/habitat-forest.webp" alt="Forest stream habitat" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Forest stream</span></div>
+</div><div class="fieldgallery">
+<div class="field zoomable"><img class="photoAsset" src="assets/habitat-aerial.webp" alt="Aerial view of a river valley" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>River landscape</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/field-wading.webp" alt="Field sampling in a river" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>In the field</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/field-camp.webp" alt="Field camp at sunset" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Field camp</span></div>
 </div></div></section>
 
 
