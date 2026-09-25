@@ -1,1 +1,191 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Preview of Oleg Artaev's academic website">
+<title>Oleg Artaev — Website preview</title>
+<style>
+:root{
+  --ink:#14262c;--ink2:#294047;--muted:#68787e;--paper:#fff;--soft:#f1f4f3;
+  --line:#d7dfdd;--accent:#315f61;--dark:#10252c;--max:1180px
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand{font:22px Georgia,"Times New Roman",serif}
+.links{display:flex;gap:24px;align-items:center;font-size:13px;color:#495b61}
+.links a:hover{color:var(--ink)} .contact{border:1px solid #9ba9aa;padding:7px 12px}
+.hero{padding:30px 0 0}
+.heroFrame{min-height:610px;position:relative;overflow:hidden;border:1px solid #cad4d1;
+background:
+linear-gradient(90deg,rgba(9,29,35,.86) 0%,rgba(9,29,35,.60) 43%,rgba(9,29,35,.08) 78%),
+linear-gradient(0deg,rgba(9,29,35,.16),rgba(9,29,35,.01)),
+url("../background.jpg") center center / cover no-repeat;
+}
+.photoTag{position:absolute;right:28px;top:24px;font-size:11px;letter-spacing:.12em;color:#e8f0ed;text-transform:uppercase}
+.heroCopy{position:absolute;left:0;bottom:0;z-index:2;max-width:900px;padding:58px 62px 62px;color:#fff}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--accent);margin-bottom:14px}
+.hero .kicker{color:#d8e5e1}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.08;margin:0}
+h1{font-size:clamp(42px,5.4vw,68px);letter-spacing:-.035em;max-width:850px}
+h2{font-size:clamp(31px,3.8vw,48px);letter-spacing:-.025em}
+h3{font-size:24px}
+.hero p{font-size:18px;max-width:650px;color:rgba(255,255,255,.9);margin:24px 0 0}
+.section{padding:82px 0;border-bottom:1px solid #e9edec}.soft{background:var(--soft)}.compact{padding:62px 0}
+.grid2{display:grid;grid-template-columns:260px 1fr;gap:68px;align-items:start}
+.lead{font:clamp(25px,3vw,36px)/1.32 Georgia,"Times New Roman",serif;color:var(--ink2);margin:0}
+.copy{color:#4f6066;font-size:16px;max-width:800px}.copy p{margin:0 0 17px}.quiet{color:var(--muted);font-size:14px}
+.researchThemes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:26px}
+.theme{padding:18px 24px 4px 0;border-right:1px solid var(--line)}
+.theme:not(:first-child){padding-left:24px}.theme:last-child{border-right:0}
+.theme strong{display:block;font:19px Georgia,"Times New Roman",serif;margin-bottom:6px}.theme span{font-size:13px;color:var(--muted)}
+.imagingIntro{display:grid;grid-template-columns:260px 1fr;gap:68px;align-items:end;margin-bottom:34px}
+.heroFish{border-top:1px solid var(--line);padding-top:18px}
+.heroFishVisual{height:360px;position:relative;overflow:hidden;background:#f3f5f3;border:1px solid var(--line)}
+.heroFishVisual:before{content:"";position:absolute;left:7%;right:12%;top:39%;height:24%;border-radius:55% 42% 46% 51%/50%;background:linear-gradient(90deg,#718a85,#b7c8c4 45%,#8fa39e)}
+.heroFishVisual:after{content:"";position:absolute;right:5.5%;top:34%;border-left:170px solid #98aba6;border-top:54px solid transparent;border-bottom:54px solid transparent}
+.heroFish .eye{left:15%;top:49%}
+.zoomLabel{position:absolute;right:18px;bottom:16px;padding:6px 9px;background:rgba(255,255,255,.9);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.fishSmallGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.fishSmallGrid .fish{height:180px}
+.detailNote{display:flex;justify-content:space-between;gap:25px;padding-top:10px;font-size:12px;color:var(--muted)}
+.detailNote strong{color:var(--ink)}
+.map{margin-top:32px;border:1px solid var(--line);background:white}
+.mapVisual{height:430px;position:relative;overflow:hidden;background:
+linear-gradient(#eef2f0,#e8edeb)}
+.mapVisual:before,.mapVisual:after{content:"";position:absolute;left:4%;right:4%;height:1px;background:#c8d1ce;transform:rotate(-4deg)}
+.mapVisual:before{top:46%}.mapVisual:after{top:64%;transform:rotate(3deg)}
+.spot{position:absolute;border-radius:50%;background:radial-gradient(circle,#315f61aa 0 16%,#315f6170 28%,#315f6100 72%)}
+.s1{width:230px;height:230px;left:12%;top:34%}.s2{width:170px;height:170px;left:31%;top:24%}.s3{width:205px;height:205px;left:48%;top:31%}.s4{width:230px;height:230px;left:66%;top:34%}.s5{width:180px;height:180px;left:82%;top:27%}
+.mapLabel{position:absolute;left:28px;top:24px;font-size:11px;letter-spacing:.14em;color:#6d7b77;text-transform:uppercase}
+.caption{display:grid;grid-template-columns:260px 1fr;gap:38px;padding:18px 22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.caption strong{color:var(--ink)}
+.fishFeature{display:grid;grid-template-columns:260px 1fr;gap:68px}
+.fishList{display:grid;gap:20px}.fishCard{border-top:1px solid var(--line);padding-top:15px}.fishCard:first-child{border-top:0;padding-top:0}
+.fish{height:155px;border:1px solid var(--line);background:#eef1ee;position:relative;overflow:hidden}
+.fish:before{content:"";position:absolute;left:10%;right:16%;top:34%;height:32%;border-radius:55% 42% 46% 51%/50%;background:linear-gradient(90deg,#8da39e,#b7c6c2 46%,#97aaa5)}
+.fish:after{content:"";position:absolute;right:6.5%;top:28%;border-left:120px solid #9fb1ad;border-top:38px solid transparent;border-bottom:38px solid transparent}
+.eye{position:absolute;left:18%;top:45%;width:8px;height:8px;border-radius:50%;background:#263e43;z-index:2}
+.fmeta{display:flex;justify-content:space-between;gap:18px;padding-top:8px;font-size:12px;color:var(--muted)}.fmeta strong{color:var(--ink)}
+.fieldstrip{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:15px;margin-top:30px}
+.fieldgallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px}
+.field{height:250px;border:1px solid var(--line);position:relative;overflow:hidden;background:linear-gradient(180deg,#aebfba,#d9e1de)}
+.fieldgallery .field{height:205px}
+.field:before{content:"";position:absolute;left:-5%;right:-5%;bottom:-12%;height:55%;background:#899f99;border-radius:50% 50% 0 0}
+.field span{position:absolute;left:14px;bottom:12px;background:rgba(255,255,255,.92);padding:5px 8px;font-size:12px}
+.tool{display:grid;grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);gap:70px;align-items:center}
+.status{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--accent);border:1px solid #b9c8c5;padding:6px 9px;margin-bottom:18px}
+.toolUI{border:1px solid #c8d2cf;background:#eef2f1;box-shadow:0 18px 45px rgba(15,38,45,.08)}
+.uiTop{height:44px;background:#183038;color:#eef3f1;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:11px}
+.uiBody{display:grid;grid-template-columns:56px 1fr;min-height:310px}.side{background:#e2e9e7;border-right:1px solid #cbd4d2;padding:16px 11px}
+.side i{display:block;height:7px;background:#9bada8;margin-bottom:13px}
+.canvas{position:relative;background:linear-gradient(#fbfcfb,#edf2f0)}
+.canvas .fishshape{position:absolute;left:12%;right:13%;top:43%;height:58px;border-radius:55% 40% 45% 50%;background:#b7c7c3}
+.canvas .fishshape:after{content:"";position:absolute;right:-48px;top:7px;border-left:55px solid #b7c7c3;border-top:22px solid transparent;border-bottom:22px solid transparent}
+.dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#315f61;border:2px solid white;box-shadow:0 0 0 1px #315f61}
+.d1{left:24%;top:48%}.d2{left:39%;top:43%}.d3{left:54%;top:50%}.d4{left:68%;top:45%}.d5{left:78%;top:52%}
+.work{border-top:1px solid var(--line);margin-top:28px}.row{display:grid;grid-template-columns:75px 1fr auto;gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.year{font-size:12px;color:var(--muted);padding-top:4px}.title{font:19px Georgia,"Times New Roman",serif}.meta{font-size:13px;color:var(--muted);margin-top:3px}
+.more{font-size:13px;color:var(--accent)}
+
+.photoAsset{position:absolute;inset:0;width:100%;height:100%;display:block}
+.field .photoAsset{object-fit:cover}
+.heroFishVisual .photoAsset,.fish .photoAsset{object-fit:contain;background:#f3f5f3}
+.zoomable{cursor:zoom-in}
+.has-image:before,.has-image:after{display:none!important}
+.has-image .eye{display:none}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(5,13,16,.96);display:none;align-items:center;justify-content:center;padding:28px}
+.lightbox.open{display:flex}
+.lightbox img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.lightboxClose{position:fixed;right:22px;top:18px;width:42px;height:42px;border:1px solid rgba(255,255,255,.38);background:rgba(0,0,0,.25);color:white;font-size:28px;line-height:38px;cursor:pointer}
+.lightboxHint{position:fixed;left:20px;bottom:16px;color:rgba(255,255,255,.65);font-size:12px;letter-spacing:.04em}
+
+footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:flex;justify-content:space-between;gap:24px;font-size:13px}.foot strong{color:white}
+@media(max-width:900px){
+ .wrap{width:min(var(--max),calc(100% - 30px))}.links{gap:12px;font-size:12px}.links a:nth-child(4),.links a:nth-child(6){display:none}
+ .hero{padding-top:15px}.heroFrame{min-height:530px}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool,.imagingIntro{grid-template-columns:1fr;gap:22px}
+ .section{padding:64px 0}.fieldstrip,.fieldgallery,.researchThemes{grid-template-columns:1fr}.theme{border-right:0;border-bottom:1px solid var(--line);padding:15px 0!important}.theme:last-child{border-bottom:0}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}.heroFishVisual{height:260px}
+}
+@media(max-width:560px){.links a:not(.contact){display:none}.fish{height:120px}.fishSmallGrid{grid-template-columns:1fr}.row{grid-template-columns:55px 1fr}.row .more{display:none}.heroFishVisual{height:190px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin"><a class="brand" href="#top">Oleg Artaev</a><div class="links">
+<a href="#research">Research</a><a href="#work">Publications</a><a href="#fieldwork">Fieldwork</a><a href="#imaging">Scientific imaging</a><a href="#tools">Tools</a><a href="#about">About</a><a class="contact" href="mailto:oleg@olegartaev.com">Contact</a>
+</div></div></nav>
+<main id="top">
+<section class="hero"><div class="wrap"><div class="heroFrame"><div class="photoTag">Field landscape</div><div class="heroCopy"><div class="kicker">Freshwater fishes · Eurasia</div><h1>How do geography and environment shape the diversity and evolution of freshwater fishes?</h1><p>I study freshwater fish diversity and evolutionary history across Eurasia, combining field sampling, morphology, molecular data and spatial information.</p></div></div></div></section>
+
+<section class="section compact" id="research"><div class="wrap grid2"><div class="kicker">Research</div><div><p class="lead">Freshwater fish diversity and evolutionary history across Eurasian river systems.</p><div class="researchThemes"><div class="theme"><strong>Diversity & taxonomy</strong><span>Integrative work with specimens, morphology and molecular evidence.</span></div><div class="theme"><strong>Biogeographic history</strong><span>How drainage history and isolation are reflected in present-day lineages.</span></div><div class="theme"><strong>Geographic variation</strong><span>Comparing populations and phenotypes across freshwater systems.</span></div></div></div></div></section>
+
+<section class="section soft" id="work"><div class="wrap"><div class="grid2"><div><div class="kicker">Selected publications</div><h2>Representative work</h2></div><div class="copy"><p>Three recent studies that represent my work on freshwater fish diversity, taxonomy and biogeographic history.</p></div></div><div class="work">
+<div class="row"><div class="year">2025</div><div><div class="title"><em>A new super narrow-ranged endemic Phoxinus minnow (Leuciscidae) from the Caucasus</em></div><div class="meta">Zoosystematics and Evolution 101(3): 1137–1154</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.101.153548">DOI ↗</a></div>
+<div class="row"><div class="year">2024</div><div><div class="title"><em>Forgotten for two centuries: redescription of Phoxinus isetensis (Georgi, 1775) (Cypriniformes, Leuciscidae) – the most widespread minnow in Europe</em></div><div class="meta">Zoosystematics and Evolution 100(3): 1155–1173</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.100.126702">DOI ↗</a></div>
+<div class="row"><div class="year">2024</div><div><div class="title"><em>Taxonomic revision of Phoxinus minnows (Leuciscidae) from Caucasus, with description of a new narrow-ranged endemic species</em></div><div class="meta">Zoosystematics and Evolution 100(1): 291–308</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.100.115696">DOI ↗</a></div>
+</div></div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="section" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Fieldwork</div><h2>Field coverage across Eurasia</h2></div><div class="copy"><p>Freshwater fish sampling across geographically contrasting river systems.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized field coverage</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field coverage</strong><span>Generalized spatial representation; exact sampling localities are not shown.</span></div></div><div class="fieldstrip">
+<div class="field zoomable"><span>Sampling</span></div>
+<div class="field zoomable"><span>Mountain stream</span></div>
+<div class="field zoomable"><span>Forest stream</span></div>
+</div><div class="fieldgallery">
+<div class="field zoomable"><span>River landscape</span></div>
+<div class="field zoomable"><span>In the field</span></div>
+<div class="field zoomable"><span>Field camp</span></div>
+</div></div></section>
+
+
+
+
+
+<section class="section soft" id="imaging"><div class="wrap"><div class="imagingIntro"><div><div class="kicker">Scientific imaging</div><h2>Documenting fishes in life</h2></div><div class="copy"><p>Standardized images preserve live coloration and external phenotype before fixation. Selected specimens are photographed with focus stacking to retain fine detail across the body.</p></div></div><div class="heroFish"><div class="heroFishVisual zoomable"><i class="eye"></i><span class="zoomLabel">High-resolution image · click to inspect</span></div><div class="detailNote"><strong>Primary high-resolution specimen image</strong><span>This position is reserved for a full-width image large enough to inspect scales, fins and surface detail.</span></div></div><div class="fishSmallGrid">
+<div class="fishCard"><div class="fish zoomable"><i class="eye"></i></div><div class="fmeta"><strong>Live specimen</strong><span>coloration · phenotype</span></div></div>
+<div class="fishCard"><div class="fish zoomable"><i class="eye"></i></div><div class="fmeta"><strong>Focus-stacked specimen</strong><span>fine external detail</span></div></div>
+</div></div></section>
+
+<section class="section" id="tools"><div class="wrap tool"><div><div class="kicker">Tools</div><div class="status">In development</div><h2>MorphoLabel</h2><p class="lead" style="font-size:27px;margin-top:18px">Open-source annotation software for fish morphology.</p><div class="copy" style="margin-top:20px"><p>The current work focuses on efficient landmark annotation, review and correction of specimen images.</p><p class="quiet">Additional tools can appear here later, but only when they become usable parts of the research workflow.</p></div></div><div class="toolUI"><div class="uiTop"><span>MorphoLabel</span><span>Landmarks</span></div><div class="uiBody"><div class="side"><i></i><i></i><i></i><i></i><i></i></div><div class="canvas"><div class="fishshape"></div><b class="dot d1"></b><b class="dot d2"></b><b class="dot d3"></b><b class="dot d4"></b><b class="dot d5"></b></div></div></div></div></section>
+
+<section class="section" id="about"><div class="wrap grid2"><div><div class="kicker">About</div><h2>Oleg Artaev</h2></div><div class="copy"><p>Ichthyologist working on freshwater fish diversity, taxonomy and evolutionary history.</p><p class="quiet">Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences · CV · ORCID · Google Scholar · GitHub</p></div></div></section>
+</main>
+<footer><div class="wrap foot"><div><strong>Oleg Artaev</strong><br>Ichthyologist · freshwater fishes</div><div>Preview · main site unchanged</div></div></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+<button class="lightboxClose" type="button" aria-label="Close">×</button>
+<img id="lightboxImage" alt="">
+<div class="lightboxHint">Click outside the image or press Esc to close</div>
+</div>
+<script>
+(function(){
+  const box=document.getElementById('lightbox');
+  const big=document.getElementById('lightboxImage');
+  const close=()=>{box.classList.remove('open');box.setAttribute('aria-hidden','true');big.removeAttribute('src');document.body.style.overflow='';};
+  document.querySelectorAll('.zoomable').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const img=el.querySelector('img');
+      if(!img || !img.naturalWidth) return;
+      big.src=img.currentSrc||img.src;
+      big.alt=img.alt||'';
+      box.classList.add('open');
+      box.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    });
+  });
+  box.addEventListener('click',e=>{if(e.target===box||e.target.classList.contains('lightboxClose')) close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('open')) close();});
+})();
+</script>
+</body></html>
