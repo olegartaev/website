@@ -1,0 +1,8 @@
+Selected preview photographs. Upload these files here without renaming:
+hero-panorama.webp
+field-sampling.webp
+habitat-mountain.webp
+habitat-forest.webp
+habitat-aerial.webp
+field-wading.webp
+field-camp.webp
