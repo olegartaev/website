@@ -19,7 +19,7 @@ nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-f
 .links{display:flex;gap:24px;align-items:center;font-size:13px;color:#495b61}
 .links a:hover{color:var(--ink)} .contact{border:1px solid #9ba9aa;padding:7px 12px}
 .hero{padding:30px 0 0}
-.heroFrame{min-height:610px;position:relative;overflow:hidden;border:1px solid #cad4d1;
+.heroFrame{aspect-ratio:16/9;min-height:0;position:relative;overflow:hidden;border:1px solid #cad4d1;
 background:
 linear-gradient(90deg,rgba(9,29,35,.86) 0%,rgba(9,29,35,.60) 43%,rgba(9,29,35,.08) 78%),
 linear-gradient(0deg,rgba(9,29,35,.16),rgba(9,29,35,.01)),
@@ -107,7 +107,7 @@ linear-gradient(#eef2f0,#e8edeb)}
 footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:flex;justify-content:space-between;gap:24px;font-size:13px}.foot strong{color:white}
 @media(max-width:900px){
  .wrap{width:min(var(--max),calc(100% - 30px))}.links{gap:12px;font-size:12px}.links a:nth-child(4),.links a:nth-child(6){display:none}
- .hero{padding-top:15px}.heroFrame{min-height:530px}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool,.imagingIntro{grid-template-columns:1fr;gap:22px}
+ .hero{padding-top:15px}.heroFrame{aspect-ratio:4/3;min-height:0}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool,.imagingIntro{grid-template-columns:1fr;gap:22px}
  .section{padding:64px 0}.fieldstrip,.fieldgallery,.researchThemes{grid-template-columns:1fr}.theme{border-right:0;border-bottom:1px solid var(--line);padding:15px 0!important}.theme:last-child{border-bottom:0}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}.heroFishVisual{height:260px}
 }
 @media(max-width:560px){.links a:not(.contact){display:none}.fish{height:120px}.fishSmallGrid{grid-template-columns:1fr}.row{grid-template-columns:55px 1fr}.row .more{display:none}.heroFishVisual{height:190px}}
