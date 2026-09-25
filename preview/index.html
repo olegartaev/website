@@ -87,6 +87,19 @@ linear-gradient(#eef2f0,#e8edeb)}
 .work{border-top:1px solid var(--line);margin-top:28px}.row{display:grid;grid-template-columns:75px 1fr auto;gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
 .year{font-size:12px;color:var(--muted);padding-top:4px}.title{font:19px Georgia,"Times New Roman",serif}.meta{font-size:13px;color:var(--muted);margin-top:3px}
 .more{font-size:13px;color:var(--accent)}
+
+.photoAsset{position:absolute;inset:0;width:100%;height:100%;display:block}
+.field .photoAsset{object-fit:cover}
+.heroFishVisual .photoAsset,.fish .photoAsset{object-fit:contain;background:#f3f5f3}
+.zoomable{cursor:zoom-in}
+.has-image:before,.has-image:after{display:none!important}
+.has-image .eye{display:none}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(5,13,16,.96);display:none;align-items:center;justify-content:center;padding:28px}
+.lightbox.open{display:flex}
+.lightbox img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.lightboxClose{position:fixed;right:22px;top:18px;width:42px;height:42px;border:1px solid rgba(255,255,255,.38);background:rgba(0,0,0,.25);color:white;font-size:28px;line-height:38px;cursor:pointer}
+.lightboxHint{position:fixed;left:20px;bottom:16px;color:rgba(255,255,255,.65);font-size:12px;letter-spacing:.04em}
+
 footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:flex;justify-content:space-between;gap:24px;font-size:13px}.foot strong{color:white}
 @media(max-width:900px){
  .wrap{width:min(var(--max),calc(100% - 30px))}.links{gap:12px;font-size:12px}.links a:nth-child(4),.links a:nth-child(6){display:none}
@@ -122,17 +135,50 @@ footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:fl
 
 
 
-<section class="section" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Fieldwork</div><h2>Field coverage across Eurasia</h2></div><div class="copy"><p>Freshwater fish sampling across geographically contrasting river systems.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized field coverage</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field coverage</strong><span>Generalized spatial representation; exact sampling localities are not shown.</span></div></div><div class="fieldstrip"><div class="field"><span>Sampling</span></div><div class="field"><span>Habitat</span></div><div class="field"><span>Specimen documentation</span></div></div></div></section>
+<section class="section" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Fieldwork</div><h2>Field coverage across Eurasia</h2></div><div class="copy"><p>Freshwater fish sampling across geographically contrasting river systems.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized field coverage</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field coverage</strong><span>Generalized spatial representation; exact sampling localities are not shown.</span></div></div><div class="fieldstrip">
+<div class="field zoomable"><img class="photoAsset" src="assets/field-sampling.jpg" alt="Field sampling" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Sampling</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/field-habitat.jpg" alt="Freshwater habitat" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Habitat</span></div>
+<div class="field zoomable"><img class="photoAsset" src="assets/field-documentation.jpg" alt="Specimen documentation" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span>Specimen documentation</span></div>
+</div></div></section>
 
 
 
 
 
-<section class="section soft" id="imaging"><div class="wrap"><div class="imagingIntro"><div><div class="kicker">Scientific imaging</div><h2>Documenting fishes in life</h2></div><div class="copy"><p>Standardized images preserve live coloration and external phenotype before fixation. Selected specimens are photographed with focus stacking to retain fine detail across the body.</p></div></div><div class="heroFish"><div class="heroFishVisual"><i class="eye"></i><span class="zoomLabel">High-resolution image · no crop</span></div><div class="detailNote"><strong>Primary high-resolution specimen image</strong><span>This position is reserved for a full-width image large enough to inspect scales, fins and surface detail.</span></div></div><div class="fishSmallGrid"><div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Live specimen</strong><span>coloration · phenotype</span></div></div><div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Focus-stacked specimen</strong><span>fine external detail</span></div></div></div></div></section>
+<section class="section soft" id="imaging"><div class="wrap"><div class="imagingIntro"><div><div class="kicker">Scientific imaging</div><h2>Documenting fishes in life</h2></div><div class="copy"><p>Standardized images preserve live coloration and external phenotype before fixation. Selected specimens are photographed with focus stacking to retain fine detail across the body.</p></div></div><div class="heroFish"><div class="heroFishVisual zoomable"><i class="eye"></i><img class="photoAsset" src="assets/fish-main.jpg" alt="High-resolution scientific fish image" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"><span class="zoomLabel">High-resolution image · click to inspect</span></div><div class="detailNote"><strong>Primary high-resolution specimen image</strong><span>This position is reserved for a full-width image large enough to inspect scales, fins and surface detail.</span></div></div><div class="fishSmallGrid">
+<div class="fishCard"><div class="fish zoomable"><i class="eye"></i><img class="photoAsset" src="assets/fish-02.jpg" alt="Live specimen scientific image" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"></div><div class="fmeta"><strong>Live specimen</strong><span>coloration · phenotype</span></div></div>
+<div class="fishCard"><div class="fish zoomable"><i class="eye"></i><img class="photoAsset" src="assets/fish-03.jpg" alt="Focus-stacked specimen scientific image" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'"></div><div class="fmeta"><strong>Focus-stacked specimen</strong><span>fine external detail</span></div></div>
+</div></div></section>
 
 <section class="section" id="tools"><div class="wrap tool"><div><div class="kicker">Tools</div><div class="status">In development</div><h2>MorphoLabel</h2><p class="lead" style="font-size:27px;margin-top:18px">Open-source annotation software for fish morphology.</p><div class="copy" style="margin-top:20px"><p>The current work focuses on efficient landmark annotation, review and correction of specimen images.</p><p class="quiet">Additional tools can appear here later, but only when they become usable parts of the research workflow.</p></div></div><div class="toolUI"><div class="uiTop"><span>MorphoLabel</span><span>Landmarks</span></div><div class="uiBody"><div class="side"><i></i><i></i><i></i><i></i><i></i></div><div class="canvas"><div class="fishshape"></div><b class="dot d1"></b><b class="dot d2"></b><b class="dot d3"></b><b class="dot d4"></b><b class="dot d5"></b></div></div></div></div></section>
 
 <section class="section" id="about"><div class="wrap grid2"><div><div class="kicker">About</div><h2>Oleg Artaev</h2></div><div class="copy"><p>Ichthyologist working on freshwater fish diversity, taxonomy and evolutionary history.</p><p class="quiet">Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences · CV · ORCID · Google Scholar · GitHub</p></div></div></section>
 </main>
 <footer><div class="wrap foot"><div><strong>Oleg Artaev</strong><br>Ichthyologist · freshwater fishes</div><div>Preview · main site unchanged</div></div></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+<button class="lightboxClose" type="button" aria-label="Close">×</button>
+<img id="lightboxImage" alt="">
+<div class="lightboxHint">Click outside the image or press Esc to close</div>
+</div>
+<script>
+(function(){
+  const box=document.getElementById('lightbox');
+  const big=document.getElementById('lightboxImage');
+  const close=()=>{box.classList.remove('open');box.setAttribute('aria-hidden','true');big.removeAttribute('src');document.body.style.overflow='';};
+  document.querySelectorAll('.zoomable').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const img=el.querySelector('img');
+      if(!img || !img.naturalWidth) return;
+      big.src=img.currentSrc||img.src;
+      big.alt=img.alt||'';
+      box.classList.add('open');
+      box.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    });
+  });
+  box.addEventListener('click',e=>{if(e.target===box||e.target.classList.contains('lightboxClose')) close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('open')) close();});
+})();
+</script>
 </body></html>
