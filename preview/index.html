@@ -21,15 +21,9 @@ nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-f
 .hero{padding:30px 0 0}
 .heroFrame{min-height:610px;position:relative;overflow:hidden;border:1px solid #cad4d1;
 background:
-linear-gradient(90deg,rgba(9,29,35,.90) 0%,rgba(9,29,35,.68) 44%,rgba(9,29,35,.12) 77%),
-linear-gradient(180deg,#90a6a0 0%,#c8d2cf 55%,#dfe5e2 100%)}
-.heroFrame:before{content:"";position:absolute;left:-4%;right:-4%;bottom:0;height:46%;
-background:
-radial-gradient(80% 90% at 10% 100%,#899f98 0 45%,transparent 46%),
-radial-gradient(70% 90% at 46% 110%,#728e89 0 45%,transparent 46%),
-radial-gradient(75% 90% at 88% 110%,#829b95 0 45%,transparent 46%)}
-.river{position:absolute;right:-2%;bottom:5%;width:58%;height:32%;border-radius:55% 0 0 0;transform:rotate(-6deg);
-background:linear-gradient(160deg,transparent 0 24%,#9fb9bd 25% 39%,transparent 40%)}
+linear-gradient(90deg,rgba(9,29,35,.88) 0%,rgba(9,29,35,.63) 45%,rgba(9,29,35,.10) 78%),
+linear-gradient(0deg,rgba(9,29,35,.18),rgba(9,29,35,.02)),
+url("../background.jpg") center center / cover no-repeat}
 .photoTag{position:absolute;right:28px;top:24px;font-size:11px;letter-spacing:.12em;color:#e8f0ed;text-transform:uppercase}
 .heroCopy{position:absolute;left:0;bottom:0;z-index:2;max-width:900px;padding:58px 62px 62px;color:#fff}
 .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--accent);margin-bottom:14px}
@@ -43,6 +37,21 @@ h3{font-size:24px}
 .grid2{display:grid;grid-template-columns:260px 1fr;gap:68px;align-items:start}
 .lead{font:clamp(25px,3vw,36px)/1.32 Georgia,"Times New Roman",serif;color:var(--ink2);margin:0}
 .copy{color:#4f6066;font-size:16px;max-width:800px}.copy p{margin:0 0 17px}.quiet{color:var(--muted);font-size:14px}
+.researchThemes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:26px}
+.theme{padding:18px 24px 4px 0;border-right:1px solid var(--line)}
+.theme:not(:first-child){padding-left:24px}.theme:last-child{border-right:0}
+.theme strong{display:block;font:19px Georgia,"Times New Roman",serif;margin-bottom:6px}.theme span{font-size:13px;color:var(--muted)}
+.imagingIntro{display:grid;grid-template-columns:260px 1fr;gap:68px;align-items:end;margin-bottom:34px}
+.heroFish{border-top:1px solid var(--line);padding-top:18px}
+.heroFishVisual{height:360px;position:relative;overflow:hidden;background:#f3f5f3;border:1px solid var(--line)}
+.heroFishVisual:before{content:"";position:absolute;left:7%;right:12%;top:39%;height:24%;border-radius:55% 42% 46% 51%/50%;background:linear-gradient(90deg,#718a85,#b7c8c4 45%,#8fa39e)}
+.heroFishVisual:after{content:"";position:absolute;right:5.5%;top:34%;border-left:170px solid #98aba6;border-top:54px solid transparent;border-bottom:54px solid transparent}
+.heroFish .eye{left:15%;top:49%}
+.zoomLabel{position:absolute;right:18px;bottom:16px;padding:6px 9px;background:rgba(255,255,255,.9);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.fishSmallGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.fishSmallGrid .fish{height:180px}
+.detailNote{display:flex;justify-content:space-between;gap:25px;padding-top:10px;font-size:12px;color:var(--muted)}
+.detailNote strong{color:var(--ink)}
 .map{margin-top:32px;border:1px solid var(--line);background:white}
 .mapVisual{height:430px;position:relative;overflow:hidden;background:
 linear-gradient(#eef2f0,#e8edeb)}
@@ -81,51 +90,49 @@ linear-gradient(#eef2f0,#e8edeb)}
 footer{background:var(--dark);color:#c8d3d0;padding:38px 0 44px}.foot{display:flex;justify-content:space-between;gap:24px;font-size:13px}.foot strong{color:white}
 @media(max-width:900px){
  .wrap{width:min(var(--max),calc(100% - 30px))}.links{gap:12px;font-size:12px}.links a:nth-child(4),.links a:nth-child(6){display:none}
- .hero{padding-top:15px}.heroFrame{min-height:530px}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool{grid-template-columns:1fr;gap:22px}
- .section{padding:64px 0}.fieldstrip{grid-template-columns:1fr}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}
+ .hero{padding-top:15px}.heroFrame{min-height:530px}.heroCopy{padding:34px 28px}.grid2,.fishFeature,.caption,.tool,.imagingIntro{grid-template-columns:1fr;gap:22px}
+ .section{padding:64px 0}.fieldstrip,.researchThemes{grid-template-columns:1fr}.theme{border-right:0;border-bottom:1px solid var(--line);padding:15px 0!important}.theme:last-child{border-bottom:0}.mapVisual{height:320px}.tool{gap:38px}.uiBody{min-height:260px}.heroFishVisual{height:260px}
 }
-@media(max-width:560px){.links a:not(.contact){display:none}.fish{height:120px}.row{grid-template-columns:55px 1fr}.row .more{display:none}}
+@media(max-width:560px){.links a:not(.contact){display:none}.fish{height:120px}.fishSmallGrid{grid-template-columns:1fr}.row{grid-template-columns:55px 1fr}.row .more{display:none}.heroFishVisual{height:190px}}
 </style>
 </head>
 <body>
 <nav><div class="wrap navin"><a class="brand" href="#top">Oleg Artaev</a><div class="links">
-<a href="#research">Research</a><a href="#fieldwork">Fieldwork</a><a href="#work">Publications</a><a href="#imaging">Scientific imaging</a><a href="#tools">Tools</a><a href="#about">About</a><a class="contact" href="mailto:oleg@olegartaev.com">Contact</a>
+<a href="#research">Research</a><a href="#work">Publications</a><a href="#fieldwork">Fieldwork</a><a href="#imaging">Scientific imaging</a><a href="#tools">Tools</a><a href="#about">About</a><a class="contact" href="mailto:oleg@olegartaev.com">Contact</a>
 </div></div></nav>
 <main id="top">
-<section class="hero"><div class="wrap"><div class="heroFrame"><div class="photoTag">Drone panorama placeholder</div><div class="river"></div><div class="heroCopy"><div class="kicker">Freshwater fishes · Eurasia</div><h1>How do geography and environment shape the diversity and evolution of freshwater fishes?</h1><p>I study freshwater fish diversity and evolutionary history across Eurasia, combining field sampling, morphology, molecular data and spatial information.</p></div></div></div></section>
+<section class="hero"><div class="wrap"><div class="heroFrame"><div class="photoTag">Field landscape</div><div class="heroCopy"><div class="kicker">Freshwater fishes · Eurasia</div><h1>How do geography and environment shape the diversity and evolution of freshwater fishes?</h1><p>I study freshwater fish diversity and evolutionary history across Eurasia, combining field sampling, morphology, molecular data and spatial information.</p></div></div></div></section>
 
-<section class="section compact" id="research"><div class="wrap grid2"><div class="kicker">Research</div><div><p class="lead">Field-based ichthyology built around populations, specimens and geographic variation.</p><div class="copy" style="margin-top:22px"><p>My work focuses on freshwater fish diversity and evolutionary history, combining field observations, morphology and molecular evidence.</p><p class="quiet">I am also interested in broader comparative questions and complementary approaches that can extend what these systems can tell us.</p></div></div></div></section>
+<section class="section compact" id="research"><div class="wrap grid2"><div class="kicker">Research</div><div><p class="lead">Freshwater fish diversity and evolutionary history across Eurasian river systems.</p><div class="researchThemes"><div class="theme"><strong>Diversity & taxonomy</strong><span>Integrative work with specimens, morphology and molecular evidence.</span></div><div class="theme"><strong>Biogeographic history</strong><span>How drainage history and isolation are reflected in present-day lineages.</span></div><div class="theme"><strong>Geographic variation</strong><span>Comparing populations and phenotypes across freshwater systems.</span></div></div></div></div></section>
 
-
-
-
-
-
-
-
-
-
-
-
-<section class="section soft" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Field coverage</div><h2>Collections across Eurasia</h2></div><div class="copy"><p>A generalised density map can show the scale of sampling while keeping precise unpublished localities private.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized collection density</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field collections</strong><span>Heatmap placeholder — later replace with a real, spatially generalised map.</span></div></div></div></section>
-
-<section class="section soft"><div class="wrap"><div class="grid2"><div><div class="kicker">From the field</div><h2>Habitats and sampling</h2></div><div class="copy"><p>Only a few expedition photographs: collecting, habitat and specimen documentation.</p></div></div><div class="fieldstrip"><div class="field"><span>Sampling</span></div><div class="field"><span>Habitat</span></div><div class="field"><span>Specimen documentation</span></div></div></div></section>
-
-<section class="section soft" id="work"><div class="wrap"><div class="grid2"><div><div class="kicker">Selected work</div><h2>Representative studies</h2></div><div class="copy"><p>Three or four papers on the home page are enough; they should show different parts of the work rather than simply the newest papers.</p></div></div><div class="work">
-<div class="row"><div class="year">20XX</div><div><div class="title">[Field-scale freshwater biodiversity study]</div><div class="meta">Journal · short context</div></div><a class="more" href="#">Paper ↗</a></div>
-<div class="row"><div class="year">20XX</div><div><div class="title">[Integrative taxonomy study]</div><div class="meta">Journal · short context</div></div><a class="more" href="#">Paper ↗</a></div>
-<div class="row"><div class="year">20XX</div><div><div class="title">[Evolutionary or biogeographic study]</div><div class="meta">Journal · short context</div></div><a class="more" href="#">Paper ↗</a></div>
+<section class="section soft" id="work"><div class="wrap"><div class="grid2"><div><div class="kicker">Selected publications</div><h2>Representative work</h2></div><div class="copy"><p>Three recent studies that represent my work on freshwater fish diversity, taxonomy and biogeographic history.</p></div></div><div class="work">
+<div class="row"><div class="year">2025</div><div><div class="title"><em>A new super narrow-ranged endemic Phoxinus minnow (Leuciscidae) from the Caucasus</em></div><div class="meta">Zoosystematics and Evolution 101(3): 1137–1154</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.101.153548">DOI ↗</a></div>
+<div class="row"><div class="year">2024</div><div><div class="title"><em>Forgotten for two centuries: redescription of Phoxinus isetensis (Georgi, 1775) (Cypriniformes, Leuciscidae) – the most widespread minnow in Europe</em></div><div class="meta">Zoosystematics and Evolution 100(3): 1155–1173</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.100.126702">DOI ↗</a></div>
+<div class="row"><div class="year">2024</div><div><div class="title"><em>Taxonomic revision of Phoxinus minnows (Leuciscidae) from Caucasus, with description of a new narrow-ranged endemic species</em></div><div class="meta">Zoosystematics and Evolution 100(1): 291–308</div></div><a class="more" target="_blank" rel="noopener" href="https://doi.org/10.3897/zse.100.115696">DOI ↗</a></div>
 </div></div></section>
 
-<section class="section" id="imaging"><div class="wrap fishFeature"><div><div class="kicker">Scientific imaging</div><h2>Documenting fishes in life</h2><p class="quiet" style="margin-top:18px">Live coloration and external phenotype documented before preservation, including focus-stacked images for selected specimens.</p></div><div class="fishList">
-<div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Live specimen</strong><span>species · locality · voucher</span></div></div>
-<div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Focus-stacked specimen</strong><span>standardised presentation</span></div></div>
-<div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Live specimen</strong><span>external phenotype</span></div></div>
-</div></div></section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="section" id="fieldwork"><div class="wrap"><div class="grid2"><div><div class="kicker">Fieldwork</div><h2>Field coverage across Eurasia</h2></div><div class="copy"><p>Freshwater fish sampling across geographically contrasting river systems.</p></div></div><div class="map"><div class="mapVisual"><div class="mapLabel">Generalized field coverage</div><i class="spot s1"></i><i class="spot s2"></i><i class="spot s3"></i><i class="spot s4"></i><i class="spot s5"></i></div><div class="caption"><strong>Field coverage</strong><span>Generalized spatial representation; exact sampling localities are not shown.</span></div></div><div class="fieldstrip"><div class="field"><span>Sampling</span></div><div class="field"><span>Habitat</span></div><div class="field"><span>Specimen documentation</span></div></div></div></section>
+
+
+
+
+
+<section class="section soft" id="imaging"><div class="wrap"><div class="imagingIntro"><div><div class="kicker">Scientific imaging</div><h2>Documenting fishes in life</h2></div><div class="copy"><p>Standardized images preserve live coloration and external phenotype before fixation. Selected specimens are photographed with focus stacking to retain fine detail across the body.</p></div></div><div class="heroFish"><div class="heroFishVisual"><i class="eye"></i><span class="zoomLabel">High-resolution image · no crop</span></div><div class="detailNote"><strong>Primary high-resolution specimen image</strong><span>This position is reserved for a full-width image large enough to inspect scales, fins and surface detail.</span></div></div><div class="fishSmallGrid"><div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Live specimen</strong><span>coloration · phenotype</span></div></div><div class="fishCard"><div class="fish"><i class="eye"></i></div><div class="fmeta"><strong>Focus-stacked specimen</strong><span>fine external detail</span></div></div></div></div></section>
 
 <section class="section" id="tools"><div class="wrap tool"><div><div class="kicker">Tools</div><div class="status">In development</div><h2>MorphoLabel</h2><p class="lead" style="font-size:27px;margin-top:18px">Open-source annotation software for fish morphology.</p><div class="copy" style="margin-top:20px"><p>The current work focuses on efficient landmark annotation, review and correction of specimen images.</p><p class="quiet">Additional tools can appear here later, but only when they become usable parts of the research workflow.</p></div></div><div class="toolUI"><div class="uiTop"><span>MorphoLabel</span><span>Landmarks</span></div><div class="uiBody"><div class="side"><i></i><i></i><i></i><i></i><i></i></div><div class="canvas"><div class="fishshape"></div><b class="dot d1"></b><b class="dot d2"></b><b class="dot d3"></b><b class="dot d4"></b><b class="dot d5"></b></div></div></div></div></section>
 
-<section class="section" id="about"><div class="wrap grid2"><div><div class="kicker">About</div><h2>Oleg Artaev</h2></div><div class="copy"><p>Ichthyologist working on freshwater fish diversity, taxonomy and evolutionary history.</p><p class="quiet">This area will hold a short professional biography, affiliation, CV, ORCID, Google Scholar and GitHub links.</p></div></div></section>
+<section class="section" id="about"><div class="wrap grid2"><div><div class="kicker">About</div><h2>Oleg Artaev</h2></div><div class="copy"><p>Ichthyologist working on freshwater fish diversity, taxonomy and evolutionary history.</p><p class="quiet">Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences · CV · ORCID · Google Scholar · GitHub</p></div></div></section>
 </main>
 <footer><div class="wrap foot"><div><strong>Oleg Artaev</strong><br>Ichthyologist · freshwater fishes</div><div>Preview · main site unchanged</div></div></footer>
 </body></html>
