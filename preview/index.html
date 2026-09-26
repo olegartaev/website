@@ -76,16 +76,7 @@ nav{
   position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:48px
 }
 .heroText{max-width:640px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
-.heroText .eyebrow{color:#dff2ed;margin-bottom:12px}
-.heroText p{font-size:17px;color:rgba(255,255,255,.9);margin:0}
-
-/* intro */
-.intro{padding:62px 0 70px}
-.introGrid{display:grid;grid-template-columns:210px 1fr;gap:64px}
-.intro p{
-  margin:0;max-width:900px;font-size:clamp(21px,2.2vw,30px);
-  line-height:1.42;color:var(--ink);letter-spacing:-.02em
-}
+.heroText p{font-size:16px;color:rgba(255,255,255,.9);margin:0;font-weight:600}
 
 /* research */
 .researchGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -97,7 +88,13 @@ nav{
   margin-top:38px;display:grid;grid-template-columns:1.25fr .75fr;
   border-radius:18px;overflow:hidden;background:#e5ece8;min-height:320px
 }
+.systemMedia{position:relative;overflow:hidden;background:#e2ebe7}
 .systemStrip img{width:100%;height:100%;object-fit:cover}
+.systemStrip img.fishPhoto{object-position:center top}
+.fishCredit{
+  position:absolute;left:12px;bottom:10px;padding:5px 8px;border-radius:999px;
+  background:rgba(7,31,34,.56);color:white;font-size:10px;line-height:1.2
+}
 .systemText{
   padding:38px;display:flex;flex-direction:column;justify-content:center
 }
@@ -122,15 +119,17 @@ nav{
 }
 .fieldIntro p{max-width:650px;font-size:16px;margin:0}
 .fieldGrid{
-  display:grid;grid-template-columns:1.15fr .85fr .85fr;
-  grid-template-rows:285px 285px;gap:14px
+  display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:380px 300px;gap:14px
 }
 .photo{
   position:relative;overflow:hidden;border-radius:16px;background:#dce6e1;cursor:zoom-in
 }
-.photo.large{grid-row:1/span 2}
-.photo.wide{grid-column:2/span 2}
+.photo.fieldMain{grid-column:1/span 2}
 .photo img{width:100%;height:100%;object-fit:cover;transition:transform .22s ease}
+.photo.fieldMain img{object-position:50% 50%}
+.photo.mountain img{object-position:center center}
+.photo.forest img{object-position:center center}
 .photo:hover img{transform:scale(1.012)}
 .photo span{
   position:absolute;left:13px;bottom:13px;padding:6px 9px;border-radius:999px;
@@ -204,12 +203,10 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .hero img{object-position:58% center}
   .heroContent{padding-bottom:32px}
   .heroText p{font-size:15px}
-  .intro{padding:44px 0 50px}
   .section{padding:68px 0}
   .systemText{padding:28px}
-  .fieldGrid{grid-template-columns:1fr;grid-template-rows:320px 220px 220px}
-  .photo.large,.photo.wide{grid-row:auto;grid-column:auto}
-  .fieldGrid .photo:nth-child(4){display:none}
+  .fieldGrid{grid-template-columns:1fr;grid-template-rows:300px 220px 220px}
+  .photo.fieldMain{grid-column:auto}
   .toolVisual{min-height:290px}
   .toolUI{inset:24px 16px}
   .toolCopy{padding:28px}
@@ -239,17 +236,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <img src="assets/hero-panorama.webp" alt="Freshwater river landscape photographed during fieldwork">
   <div class="wrap heroContent">
     <div class="heroText">
-      <div class="eyebrow">Evolutionary ichthyology · freshwater fishes</div>
       <h1>Oleg Artaev</h1>
-      <p>Field-based research across Eurasian river systems.</p>
+      <p>Ichthyologist · Senior Research Scientist</p>
     </div>
-  </div>
-</section>
-
-<section class="intro">
-  <div class="wrap introGrid">
-    <div class="eyebrow">Research focus</div>
-    <p>I study freshwater fish diversity, evolutionary history and biogeography, combining field collections, morphology, molecular data and geography.</p>
   </div>
 </section>
 
@@ -258,8 +247,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="sectionHead">
       <div class="eyebrow">Research</div>
       <div>
-        <h2>Freshwater diversity across space and history.</h2>
-        <p class="sectionLead"><em>Phoxinus</em> is the main comparative system, with additional work on other Eurasian freshwater fishes.</p>
+        <h2>Freshwater fish diversity and biogeography.</h2>
+        <p class="sectionLead">Field-based work combining morphology, molecular data and geography.</p>
       </div>
     </div>
 
@@ -279,11 +268,14 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     </div>
 
     <div class="systemStrip">
-      <img src="assets/habitat-aerial.webp" alt="Aerial view of a freshwater landscape">
+      <div class="systemMedia">
+        <img class="fishPhoto" src="https://binary.pensoft.net/fig/1119029" onerror="this.onerror=null;this.src='assets/habitat-aerial.webp';this.classList.remove('fishPhoto')" alt="Phoxinus isetensis, live specimen and scientific plate">
+        <span class="fishCredit"><em>P. isetensis</em> · Artaev et al. 2024 · CC BY 4.0</span>
+      </div>
       <div class="systemText">
         <div class="eyebrow">Main study system</div>
-        <h3><em>Phoxinus</em> across Eurasia</h3>
-        <p>Broad geographic material allows local taxonomic questions to be examined in a wider biogeographic context.</p>
+        <h3><em>Phoxinus</em> of Eastern Europe and Asia</h3>
+        <p>Local taxonomic questions examined in a wider biogeographic context.</p>
       </div>
     </div>
   </div>
@@ -292,9 +284,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 <section class="section soft" id="work">
   <div class="wrap">
     <div class="sectionHead">
-      <div class="eyebrow">Selected work</div>
+      <div class="eyebrow">Publications</div>
       <div>
-        <h2>Recent publications.</h2>
+        <h2>Selected work.</h2>
       </div>
     </div>
 
@@ -328,27 +320,23 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="fieldIntro">
       <div>
         <div class="eyebrow" style="margin-bottom:14px">Fieldwork</div>
-        <h2>Across Eurasian river systems.</h2>
+        <h2>Fieldwork.</h2>
       </div>
-      <p>Field collections provide the specimens, tissue samples, live-colour images and geographic context used in the research.</p>
+      <p>Specimens, tissue samples and live-colour images collected across contrasting river systems.</p>
     </div>
 
     <div class="fieldGrid">
-      <a class="photo large zoomable" href="assets/field-sampling.webp">
-        <img src="assets/field-sampling.webp" alt="Freshwater fish sampling in the field">
-        <span>Field sampling</span>
+      <a class="photo fieldMain zoomable" href="assets/field-sampling.webp">
+        <img src="assets/field-sampling.webp" alt="Fish sampling in the upper Amur basin">
+        <span>Upper Amur basin · field sampling</span>
       </a>
-      <a class="photo zoomable" href="assets/habitat-mountain.webp">
-        <img src="assets/habitat-mountain.webp" alt="Mountain freshwater habitat">
-        <span>Mountain river</span>
+      <a class="photo mountain zoomable" href="assets/habitat-mountain.webp">
+        <img src="assets/habitat-mountain.webp" alt="Dzhumaly River in the Altai Mountains">
+        <span>Dzhumaly River · Altai Mountains</span>
       </a>
-      <a class="photo zoomable" href="assets/field-wading.webp">
-        <img src="assets/field-wading.webp" alt="Fieldwork in a freshwater system">
-        <span>Sampling</span>
-      </a>
-      <a class="photo wide zoomable" href="assets/habitat-forest.webp">
-        <img src="assets/habitat-forest.webp" alt="Forest freshwater habitat">
-        <span>Forest stream</span>
+      <a class="photo forest zoomable" href="assets/habitat-forest.webp">
+        <img src="assets/habitat-forest.webp" alt="Chakvistkali River in Transcaucasia">
+        <span>Chakvistkali River · Transcaucasia</span>
       </a>
     </div>
   </div>
