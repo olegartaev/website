@@ -129,9 +129,9 @@ nav{
 
 /* current project */
 .projectStrip{
-  display:grid;grid-template-columns:1.1fr .9fr;
+  display:grid;grid-template-columns:.8fr 1.2fr;
   border-radius:18px;overflow:hidden;background:white;border:1px solid var(--line);
-  min-height:360px
+  min-height:290px
 }
 .projectMedia{position:relative;overflow:hidden;background:#e2ebe7}
 .projectMedia img{width:100%;height:100%;object-fit:cover;object-position:center top}
@@ -242,8 +242,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="navlinks">
       <a href="#research">Research</a>
       <a href="#coverage">Field coverage</a>
-      <a href="#project">Current project</a>
       <a href="#work">Selected work</a>
+      <a href="#project">Current focus</a>
       <a href="#tools">MorphoLabel</a>
       <a href="#about">About</a>
       <a class="contact" href="mailto:oleg@olegartaev.com">Contact</a>
@@ -258,7 +258,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <div class="wrap heroContent">
     <div class="heroText">
       <h1>Oleg Artaev</h1>
-      <p>Freshwater fish diversity · evolution · biogeography</p>
+      <p>Ichthyologist · freshwater fish evolution &amp; biogeography</p>
     </div>
   </div>
 </section>
@@ -268,32 +268,32 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="sectionHead">
       <div class="eyebrow">Research</div>
       <div>
-        <h2>Freshwater fishes across river systems.</h2>
-        <p class="sectionLead">I combine field collections, specimens, molecular data and spatial analysis to study fish diversity and its geographic structure.</p>
+        <h2>Freshwater fish diversity across Eurasian river systems.</h2>
+        <p class="sectionLead">Field collections, specimens, molecular data and spatial analysis.</p>
       </div>
     </div>
 
     <div class="researchGrid">
       <article class="researchCard">
-        <h3>Diversity &amp; systematics</h3>
-        <p>Species boundaries and overlooked diversity using specimens, morphology and molecular evidence.</p>
+        <h3>Species &amp; lineages</h3>
+        <p>Species boundaries, overlooked diversity and integrative systematics.</p>
       </article>
       <article class="researchCard">
-        <h3>Phylogeography &amp; biogeography</h3>
-        <p>Geographic structure of lineages in relation to river basins, isolation and drainage history.</p>
+        <h3>River-basin history</h3>
+        <p>Phylogeographic structure, isolation and drainage change.</p>
       </article>
       <article class="researchCard">
         <h3>Distribution &amp; environment</h3>
-        <p>Spatial data and habitat models for species distributions and environmental change.</p>
+        <p>Species distributions, habitat and environmental change.</p>
       </article>
     </div>
 
     <div class="methodLine">
-      <span>Field ichthyology</span>
-      <span>Morphology</span>
+      <span>Field collections</span>
+      <span>Voucher specimens</span>
+      <span>Morphology &amp; imaging</span>
       <span>Molecular data</span>
       <span>GIS &amp; spatial analysis</span>
-      <span>Scientific imaging</span>
     </div>
   </div>
 </section>
@@ -315,7 +315,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <div class="wrap">
     <div class="fieldworkHead">
       <div class="eyebrow">Fieldwork</div>
-      <h2>In the field.</h2>
+      <h2>Selected field sites.</h2>
     </div>
 
     <div class="fieldGrid">
@@ -335,22 +335,6 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   </div>
 </section>
 
-<section class="section" id="project">
-  <div class="wrap">
-    <div class="projectStrip">
-      <div class="projectMedia">
-        <img src="https://binary.pensoft.net/fig/1119029" onerror="this.onerror=null;this.src='assets/habitat-aerial.webp'" alt="Phoxinus isetensis, live specimen and scientific plate">
-        <span class="projectCredit"><em>P. isetensis</em> · Artaev et al. 2024 · CC BY 4.0</span>
-      </div>
-      <div class="projectText">
-        <div class="eyebrow">Current project</div>
-        <h2><em>Phoxinus</em> of Eastern Europe and Asia</h2>
-        <p>Local taxonomic questions in a wider biogeographic context.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section soft" id="work">
   <div class="wrap">
     <div class="sectionHead">
@@ -362,10 +346,10 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
     <div class="pubGrid">
       <article class="pub">
-        <div class="pubTop"><span>2026</span><span>Volga River · biodiversity</span></div>
-        <h3>DNA barcoding reference dataset revealed overlooked diversity and clarified biogeography of fishes in the largest European river system – Volga River</h3>
-        <div class="journal">Metabarcoding and Metagenomics 10: e174947</div>
-        <a class="doi" href="https://doi.org/10.3897/mbmg.10.174947" target="_blank" rel="noopener">Open paper ↗</a>
+        <div class="pubTop"><span>2025</span><span>Central Asia · biodiversity</span></div>
+        <h3>Ichthyofauna of Tajikistan: Diversity and Changes over the Past Century</h3>
+        <div class="journal">American Museum Novitates 4032: 1–55</div>
+        <a class="doi" href="https://doi.org/10.1206/4032.1" target="_blank" rel="noopener">Open paper ↗</a>
       </article>
 
       <article class="pub">
@@ -381,6 +365,22 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
         <div class="journal">Water 15(11): 2091</div>
         <a class="doi" href="https://doi.org/10.3390/w15112091" target="_blank" rel="noopener">Open paper ↗</a>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="project">
+  <div class="wrap">
+    <div class="projectStrip">
+      <div class="projectMedia">
+        <img src="https://binary.pensoft.net/fig/1119029" onerror="this.onerror=null;this.src='assets/habitat-aerial.webp'" alt="Phoxinus isetensis, live specimen and scientific plate">
+        <span class="projectCredit"><em>P. isetensis</em> · Artaev et al. 2024 · CC BY 4.0</span>
+      </div>
+      <div class="projectText">
+        <div class="eyebrow">Current focus</div>
+        <h2><em>Phoxinus</em> of Eastern Europe and Asia</h2>
+        <p>Integrative taxonomy and biogeography across geographically fragmented lineages.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -422,6 +422,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       <p>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
       <div class="contactLine">
         <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=NCxOTqcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://www.researchgate.net/profile/Oleg-Artaev" target="_blank" rel="noopener">ResearchGate ↗</a>
       </div>
     </div>
   </div>
