@@ -91,11 +91,10 @@ nav{
   padding:7px 10px;border-radius:999px;background:white
 }
 
-/* field */
-.fieldIntro{
-  display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:30px
-}
-.fieldIntro p{max-width:650px;font-size:16px;margin:0}
+/* field coverage */
+.coverageHead{margin-bottom:34px}
+.coverageHead .eyebrow{margin-bottom:14px}
+.coverageHead h2{margin-bottom:0}
 .coverageMap{
   display:block;overflow:hidden;border-radius:18px;
   background:#e5ece9;border:1px solid var(--line);cursor:zoom-in
@@ -103,15 +102,20 @@ nav{
 .coverageMap img{
   display:block;width:100%;height:auto;transition:transform .22s ease
 }
-.coverageMap:hover img{transform:scale(1.006)}
+.coverageMap:hover img{transform:scale(1.004)}
+
+/* fieldwork */
+.fieldworkSection{padding-top:96px;padding-bottom:96px}
+.fieldworkHead{margin-bottom:28px}
+.fieldworkHead .eyebrow{margin-bottom:12px}
+.fieldworkHead h2{font-size:clamp(28px,3.1vw,42px);margin-bottom:0}
 .fieldGrid{
-  display:grid;grid-template-columns:1fr 1fr;
-  grid-template-rows:380px 300px;gap:14px;margin-top:30px
+  display:grid;grid-template-columns:repeat(3,1fr);
+  grid-template-rows:230px;gap:14px
 }
 .photo{
   position:relative;overflow:hidden;border-radius:16px;background:#dce6e1;cursor:zoom-in
 }
-.photo.fieldMain{grid-column:1/span 2}
 .photo img{width:100%;height:100%;object-fit:cover;transition:transform .22s ease}
 .photo.fieldMain img{object-position:50% 50%}
 .photo.mountain img{object-position:center center}
@@ -206,8 +210,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .sectionHead,.aboutGrid{grid-template-columns:1fr;gap:16px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
   .projectStrip,.toolRow{grid-template-columns:1fr}
-  .fieldIntro{display:block}
-  .fieldIntro p{margin-top:16px}
+  .fieldGrid{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px}
+  .photo.fieldMain{grid-column:1/span 2}
 }
 @media(max-width:760px){
   .wrap{width:calc(100% - 30px)}
@@ -218,7 +222,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .heroContent{padding-bottom:32px}
   .heroText p{font-size:15px}
   .section{padding:68px 0}
-  .fieldGrid{grid-template-columns:1fr;grid-template-rows:300px 220px 220px}
+  .fieldworkSection{padding-top:76px;padding-bottom:76px}
+  .fieldGrid{grid-template-columns:1fr;grid-template-rows:280px 220px 220px}
   .photo.fieldMain{grid-column:auto}
   .projectText{padding:28px}
   .projectMedia{min-height:280px}
@@ -236,7 +241,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <a class="brand" href="#top">Oleg Artaev</a>
     <div class="navlinks">
       <a href="#research">Research</a>
-      <a href="#field">Field systems</a>
+      <a href="#coverage">Field coverage</a>
       <a href="#project">Current project</a>
       <a href="#work">Selected work</a>
       <a href="#tools">MorphoLabel</a>
@@ -293,19 +298,25 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   </div>
 </section>
 
-<section class="section soft" id="field">
+<section class="section soft" id="coverage">
   <div class="wrap">
-    <div class="fieldIntro">
-      <div>
-        <div class="eyebrow" style="margin-bottom:14px">Field systems</div>
-        <h2>Across Eurasia.</h2>
-      </div>
-      <p>Field collections connect specimens, tissue samples, live-colour images and locality data.</p>
+    <div class="coverageHead">
+      <div class="eyebrow">Field coverage</div>
+      <h2>Across Eurasia.</h2>
     </div>
 
     <a class="coverageMap zoomable" href="assets/field-coverage-eurasia-hq-2048.webp">
       <img src="assets/field-coverage-eurasia-hq-2048.webp" width="2048" height="975" alt="Field coverage across Eurasia">
     </a>
+  </div>
+</section>
+
+<section class="section fieldworkSection" id="field">
+  <div class="wrap">
+    <div class="fieldworkHead">
+      <div class="eyebrow">Fieldwork</div>
+      <h2>In the field.</h2>
+    </div>
 
     <div class="fieldGrid">
       <a class="photo fieldMain zoomable" href="assets/field-sampling.webp">
