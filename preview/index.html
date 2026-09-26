@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Oleg Artaev — evolutionary ichthyology, freshwater fish diversity and biogeography across Eurasia.">
-<title>Oleg Artaev — Freshwater Fish Evolution</title>
+<meta name="description" content="Oleg Artaev — freshwater fish diversity, evolution and biogeography.">
+<title>Oleg Artaev — Freshwater Fish Diversity & Evolution</title>
 <style>
 :root{
   --ink:#173034;
@@ -53,7 +53,7 @@ nav{
   height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px
 }
 .brand{font-size:16px;font-weight:800}
-.navlinks{display:flex;align-items:center;gap:22px;font-size:13px;color:rgba(255,255,255,.88)}
+.navlinks{display:flex;align-items:center;gap:20px;font-size:13px;color:rgba(255,255,255,.88)}
 .navlinks a:hover{color:white}
 .navlinks .contact{
   border:1px solid rgba(255,255,255,.52);padding:7px 12px;border-radius:999px;color:#fff
@@ -70,48 +70,26 @@ nav{
 }
 .hero:before{
   content:"";position:absolute;z-index:1;inset:0;
-  background:linear-gradient(to bottom,rgba(3,18,20,.18) 0%,rgba(3,18,20,0) 34%,rgba(3,18,20,0) 62%,rgba(3,18,20,.38) 100%)
+  background:linear-gradient(to bottom,rgba(3,18,20,.15) 0%,rgba(3,18,20,0) 34%,rgba(3,18,20,0) 65%,rgba(3,18,20,.34) 100%)
 }
 .heroContent{
-  position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:48px
+  position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:46px
 }
-.heroText{max-width:640px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
-.heroText p{font-size:16px;color:rgba(255,255,255,.9);margin:0;font-weight:600}
+.heroText{max-width:720px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
+.heroText p{font-size:16px;color:rgba(255,255,255,.92);margin:0;font-weight:600}
 
 /* research */
-.researchGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.researchCard{
-  padding:25px 0 5px;border-top:2px solid #c9d8d3
+.researchGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.researchCard{padding:25px 0 5px;border-top:2px solid #c9d8d3}
+.researchCard p{font-size:14px;margin:0;max-width:350px}
+.methodLine{
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;gap:10px;flex-wrap:wrap
 }
-.researchCard p{font-size:14px;margin:0;max-width:340px}
-.systemStrip{
-  margin-top:38px;display:grid;grid-template-columns:1.25fr .75fr;
-  border-radius:18px;overflow:hidden;background:#e5ece8;min-height:320px
+.methodLine span{
+  font-size:11px;font-weight:700;color:#4f6968;border:1px solid #cbd7d3;
+  padding:7px 10px;border-radius:999px;background:white
 }
-.systemMedia{position:relative;overflow:hidden;background:#e2ebe7}
-.systemStrip img{width:100%;height:100%;object-fit:cover}
-.systemStrip img.fishPhoto{object-position:center top}
-.fishCredit{
-  position:absolute;left:12px;bottom:10px;padding:5px 8px;border-radius:999px;
-  background:rgba(7,31,34,.56);color:white;font-size:10px;line-height:1.2
-}
-.systemText{
-  padding:38px;display:flex;flex-direction:column;justify-content:center
-}
-.systemText .eyebrow{margin-bottom:13px}
-.systemText h3{font-size:28px}
-.systemText p{font-size:15px;margin:0}
-
-/* publications */
-.pubGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.pub{
-  min-height:250px;background:white;border:1px solid var(--line);border-radius:16px;
-  padding:22px;display:flex;flex-direction:column
-}
-.pubTop{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#7b8d8d;margin-bottom:24px}
-.pub h3{font-size:18px;line-height:1.3}
-.pub .journal{font-size:12px;color:#758787;margin-top:auto;padding-top:18px}
-.pub .doi{margin-top:12px;font-size:12px;font-weight:800;color:var(--accent)}
 
 /* field */
 .fieldIntro{
@@ -136,6 +114,34 @@ nav{
   background:rgba(7,31,34,.57);backdrop-filter:blur(6px);
   color:white;font-size:11px;font-weight:700
 }
+
+/* current project */
+.projectStrip{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  border-radius:18px;overflow:hidden;background:white;border:1px solid var(--line);
+  min-height:360px
+}
+.projectMedia{position:relative;overflow:hidden;background:#e2ebe7}
+.projectMedia img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.projectCredit{
+  position:absolute;left:12px;bottom:10px;padding:5px 8px;border-radius:999px;
+  background:rgba(7,31,34,.56);color:white;font-size:10px;line-height:1.2
+}
+.projectText{padding:42px;display:flex;flex-direction:column;justify-content:center}
+.projectText .eyebrow{margin-bottom:14px}
+.projectText h2{font-size:clamp(30px,3.2vw,44px);margin-bottom:14px}
+.projectText p{font-size:16px;max-width:520px;margin:0}
+
+/* publications */
+.pubGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pub{
+  min-height:278px;background:white;border:1px solid var(--line);border-radius:16px;
+  padding:22px;display:flex;flex-direction:column
+}
+.pubTop{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#7b8d8d;margin-bottom:24px}
+.pub h3{font-size:18px;line-height:1.3}
+.pub .journal{font-size:12px;color:#758787;margin-top:auto;padding-top:18px}
+.pub .doi{margin-top:12px;font-size:12px;font-weight:800;color:var(--accent)}
 
 /* tool */
 .toolRow{
@@ -189,9 +195,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 }
 
 @media(max-width:980px){
-  .sectionHead,.introGrid,.aboutGrid{grid-template-columns:1fr;gap:16px}
+  .sectionHead,.aboutGrid{grid-template-columns:1fr;gap:16px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
-  .systemStrip,.toolRow{grid-template-columns:1fr}
+  .projectStrip,.toolRow{grid-template-columns:1fr}
   .fieldIntro{display:block}
   .fieldIntro p{margin-top:16px}
 }
@@ -204,9 +210,10 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .heroContent{padding-bottom:32px}
   .heroText p{font-size:15px}
   .section{padding:68px 0}
-  .systemText{padding:28px}
   .fieldGrid{grid-template-columns:1fr;grid-template-rows:300px 220px 220px}
   .photo.fieldMain{grid-column:auto}
+  .projectText{padding:28px}
+  .projectMedia{min-height:280px}
   .toolVisual{min-height:290px}
   .toolUI{inset:24px 16px}
   .toolCopy{padding:28px}
@@ -221,8 +228,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <a class="brand" href="#top">Oleg Artaev</a>
     <div class="navlinks">
       <a href="#research">Research</a>
+      <a href="#field">Field systems</a>
+      <a href="#project">Current project</a>
       <a href="#work">Selected work</a>
-      <a href="#field">Fieldwork</a>
       <a href="#tools">MorphoLabel</a>
       <a href="#about">About</a>
       <a class="contact" href="mailto:oleg@olegartaev.com">Contact</a>
@@ -237,7 +245,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <div class="wrap heroContent">
     <div class="heroText">
       <h1>Oleg Artaev</h1>
-      <p>Ichthyologist · Senior Research Scientist</p>
+      <p>Freshwater fish diversity · evolution · biogeography</p>
     </div>
   </div>
 </section>
@@ -247,82 +255,44 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="sectionHead">
       <div class="eyebrow">Research</div>
       <div>
-        <h2>Freshwater fish diversity and biogeography.</h2>
-        <p class="sectionLead">Field-based work combining morphology, molecular data and geography.</p>
+        <h2>Freshwater fishes across river systems.</h2>
+        <p class="sectionLead">I combine field collections, specimens, molecular data and spatial analysis to study fish diversity and its geographic structure.</p>
       </div>
     </div>
 
     <div class="researchGrid">
       <article class="researchCard">
-        <h3>Species diversity</h3>
-        <p>Integrative taxonomy using morphology, specimens and molecular evidence.</p>
+        <h3>Diversity &amp; systematics</h3>
+        <p>Species boundaries and overlooked diversity using specimens, morphology and molecular evidence.</p>
       </article>
       <article class="researchCard">
-        <h3>Phylogeography</h3>
-        <p>Geographic structure of lineages in relation to drainage history and isolation.</p>
+        <h3>Phylogeography &amp; biogeography</h3>
+        <p>Geographic structure of lineages in relation to river basins, isolation and drainage history.</p>
       </article>
       <article class="researchCard">
-        <h3>Phenotypic variation</h3>
-        <p>Comparing morphology and genetic patterns among populations and regions.</p>
+        <h3>Distribution &amp; environment</h3>
+        <p>Spatial data and habitat models for species distributions and environmental change.</p>
       </article>
     </div>
 
-    <div class="systemStrip">
-      <div class="systemMedia">
-        <img class="fishPhoto" src="https://binary.pensoft.net/fig/1119029" onerror="this.onerror=null;this.src='assets/habitat-aerial.webp';this.classList.remove('fishPhoto')" alt="Phoxinus isetensis, live specimen and scientific plate">
-        <span class="fishCredit"><em>P. isetensis</em> · Artaev et al. 2024 · CC BY 4.0</span>
-      </div>
-      <div class="systemText">
-        <div class="eyebrow">Main study system</div>
-        <h3><em>Phoxinus</em> of Eastern Europe and Asia</h3>
-        <p>Local taxonomic questions examined in a wider biogeographic context.</p>
-      </div>
+    <div class="methodLine">
+      <span>Field ichthyology</span>
+      <span>Morphology</span>
+      <span>Molecular data</span>
+      <span>GIS &amp; spatial analysis</span>
+      <span>Scientific imaging</span>
     </div>
   </div>
 </section>
 
-<section class="section soft" id="work">
-  <div class="wrap">
-    <div class="sectionHead">
-      <div class="eyebrow">Publications</div>
-      <div>
-        <h2>Selected work.</h2>
-      </div>
-    </div>
-
-    <div class="pubGrid">
-      <article class="pub">
-        <div class="pubTop"><span>2025</span><span><em>Phoxinus</em> · Caucasus</span></div>
-        <h3>A new super narrow-ranged endemic <em>Phoxinus</em> minnow (Leuciscidae) from the Caucasus</h3>
-        <div class="journal">Zoosystematics and Evolution 101(3): 1137–1154</div>
-        <a class="doi" href="https://doi.org/10.3897/zse.101.153548" target="_blank" rel="noopener">Open paper ↗</a>
-      </article>
-
-      <article class="pub">
-        <div class="pubTop"><span>2024</span><span><em>Phoxinus</em> · Ural region</span></div>
-        <h3>Forgotten for two centuries: redescription of <em>Phoxinus isetensis</em> (Georgi, 1775)</h3>
-        <div class="journal">Zoosystematics and Evolution 100(3): 1155–1173</div>
-        <a class="doi" href="https://doi.org/10.3897/zse.100.126702" target="_blank" rel="noopener">Open paper ↗</a>
-      </article>
-
-      <article class="pub">
-        <div class="pubTop"><span>2024</span><span><em>Phoxinus</em> · Caucasus</span></div>
-        <h3>Taxonomic revision of <em>Phoxinus</em> minnows (Leuciscidae) from Caucasus</h3>
-        <div class="journal">Zoosystematics and Evolution 100(1): 291–308</div>
-        <a class="doi" href="https://doi.org/10.3897/zse.100.115696" target="_blank" rel="noopener">Open paper ↗</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="field">
+<section class="section soft" id="field">
   <div class="wrap">
     <div class="fieldIntro">
       <div>
-        <div class="eyebrow" style="margin-bottom:14px">Fieldwork</div>
-        <h2>Fieldwork.</h2>
+        <div class="eyebrow" style="margin-bottom:14px">Field systems</div>
+        <h2>Across Eurasian river basins.</h2>
       </div>
-      <p>Specimens, tissue samples and live-colour images collected across contrasting river systems.</p>
+      <p>Field collections link voucher specimens, tissue samples, live-colour images and locality data from contrasting freshwater systems.</p>
     </div>
 
     <div class="fieldGrid">
@@ -342,10 +312,60 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   </div>
 </section>
 
-<section class="section soft" id="tools">
+<section class="section" id="project">
+  <div class="wrap">
+    <div class="projectStrip">
+      <div class="projectMedia">
+        <img src="https://binary.pensoft.net/fig/1119029" onerror="this.onerror=null;this.src='assets/habitat-aerial.webp'" alt="Phoxinus isetensis, live specimen and scientific plate">
+        <span class="projectCredit"><em>P. isetensis</em> · Artaev et al. 2024 · CC BY 4.0</span>
+      </div>
+      <div class="projectText">
+        <div class="eyebrow">Current project</div>
+        <h2><em>Phoxinus</em> of Eastern Europe and Asia</h2>
+        <p>Local taxonomic questions in a wider biogeographic context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="work">
   <div class="wrap">
     <div class="sectionHead">
-      <div class="eyebrow">Tool</div>
+      <div class="eyebrow">Publications</div>
+      <div>
+        <h2>Selected work.</h2>
+      </div>
+    </div>
+
+    <div class="pubGrid">
+      <article class="pub">
+        <div class="pubTop"><span>2026</span><span>Volga River · biodiversity</span></div>
+        <h3>DNA barcoding reference dataset revealed overlooked diversity and clarified biogeography of fishes in the largest European river system – Volga River</h3>
+        <div class="journal">Metabarcoding and Metagenomics 10: e174947</div>
+        <a class="doi" href="https://doi.org/10.3897/mbmg.10.174947" target="_blank" rel="noopener">Open paper ↗</a>
+      </article>
+
+      <article class="pub">
+        <div class="pubTop"><span>2025</span><span>Caucasus · systematics</span></div>
+        <h3>A new super narrow-ranged endemic <em>Phoxinus</em> minnow (Leuciscidae) from the Caucasus</h3>
+        <div class="journal">Zoosystematics and Evolution 101(3): 1137–1154</div>
+        <a class="doi" href="https://doi.org/10.3897/zse.101.153548" target="_blank" rel="noopener">Open paper ↗</a>
+      </article>
+
+      <article class="pub">
+        <div class="pubTop"><span>2023</span><span>Europe · species distributions</span></div>
+        <h3>Prediction of Current and Future Suitable Habitats for Three Invasive Freshwater Fish Species in Europe</h3>
+        <div class="journal">Water 15(11): 2091</div>
+        <a class="doi" href="https://doi.org/10.3390/w15112091" target="_blank" rel="noopener">Open paper ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="wrap">
+    <div class="sectionHead">
+      <div class="eyebrow">Research tool</div>
       <div>
         <h2>MorphoLabel</h2>
       </div>
@@ -364,19 +384,19 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       <div class="toolCopy">
         <div class="eyebrow">Open-source · in development</div>
         <h3>Biological image annotation</h3>
-        <p>MorphoLabel is being developed to speed up annotation and review of fish morphology, beginning with landmark-based workflows.</p>
+        <p>Software for faster annotation and review of biological morphology, beginning with landmark-based fish workflows.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section soft" id="about">
   <div class="wrap aboutGrid">
     <div class="eyebrow">About</div>
     <div class="aboutCopy">
       <h2>Oleg Artaev</h2>
       <p class="role">Ichthyologist · Senior Research Scientist</p>
-      <p>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences. Research interests: freshwater fish diversity, taxonomy, phylogeography and biogeography.</p>
+      <p>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
       <div class="contactLine">
         <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
       </div>
@@ -388,7 +408,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <footer>
   <div class="wrap foot">
-    <div><strong>Oleg Artaev</strong><br>Freshwater fish evolution · diversity · biogeography</div>
+    <div><strong>Oleg Artaev</strong><br>Freshwater fish diversity · evolution · biogeography</div>
     <div>olegartaev.com</div>
   </div>
 </footer>
