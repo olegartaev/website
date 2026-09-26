@@ -96,9 +96,20 @@ nav{
   display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:30px
 }
 .fieldIntro p{max-width:650px;font-size:16px;margin:0}
+.coverageMap{
+  display:block;overflow:hidden;border-radius:18px;
+  background:#e5ece9;border:1px solid var(--line);cursor:zoom-in
+}
+.coverageMap img{
+  display:block;width:100%;height:auto;transition:transform .22s ease
+}
+.coverageMap:hover img{transform:scale(1.006)}
+.coverageCaption{
+  margin:10px 2px 0;font-size:12px;line-height:1.45;color:#7a8c8d
+}
 .fieldGrid{
   display:grid;grid-template-columns:1fr 1fr;
-  grid-template-rows:380px 300px;gap:14px
+  grid-template-rows:380px 300px;gap:14px;margin-top:30px
 }
 .photo{
   position:relative;overflow:hidden;border-radius:16px;background:#dce6e1;cursor:zoom-in
@@ -290,10 +301,15 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="fieldIntro">
       <div>
         <div class="eyebrow" style="margin-bottom:14px">Field systems</div>
-        <h2>Across Eurasian river basins.</h2>
+        <h2>Across Eurasia.</h2>
       </div>
-      <p>Field collections link voucher specimens, tissue samples, live-colour images and locality data from contrasting freshwater systems.</p>
+      <p>Field collections connect specimens, tissue samples, live-colour images and locality data.</p>
     </div>
+
+    <a class="coverageMap zoomable" href="assets/field-coverage-eurasia.webp">
+      <img src="assets/field-coverage-eurasia.webp" alt="Generalized field coverage across Eurasia">
+    </a>
+    <p class="coverageCaption">Generalized field coverage · broad sampling regions, not exact localities.</p>
 
     <div class="fieldGrid">
       <a class="photo fieldMain zoomable" href="assets/field-sampling.webp">
