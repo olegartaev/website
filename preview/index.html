@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Oleg Artaev — freshwater fish diversity, evolution and biogeography.">
-<title>Oleg Artaev — Freshwater Fish Diversity & Evolution</title>
+<meta name="description" content="Freshwater fish evolution, biogeography and integrative taxonomy across Eurasian river systems — research by Oleg Artaev.">
+<title>Freshwater Fish Evolution Across Eurasia — Oleg Artaev</title>
 <style>
 :root{
   --ink:#173034;
@@ -52,8 +52,12 @@ nav{
   -webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)
 }
 .navin{
-  height:64px;display:flex;align-items:center;justify-content:flex-end;gap:24px
+  height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px
 }
+.navBrand{
+  font-size:13px;font-weight:750;letter-spacing:-.01em;color:rgba(255,255,255,.96)
+}
+.navBrand:hover{color:white}
 .navlinks{display:flex;align-items:center;gap:20px;font-size:13px;color:rgba(255,255,255,.94)}
 .navlinks a:hover{color:white}
 .navlinks .contact{
@@ -80,12 +84,20 @@ nav{
 .heroContent{
   position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:54px
 }
-.heroText{max-width:760px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
-.heroText h1{margin-bottom:8px}
-.heroRole{font-size:15px;color:rgba(255,255,255,.92);margin:0;font-weight:600}
+.heroText{max-width:920px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
+.heroIdentity{
+  display:flex;align-items:center;gap:9px;margin-bottom:18px;
+  font-size:14px;line-height:1.2;color:rgba(255,255,255,.88)
+}
+.heroName{font-weight:800;color:white}
+.heroIdentity .sep{color:rgba(255,255,255,.58)}
+.heroText h1{
+  max-width:920px;margin:0 0 17px;font-size:clamp(42px,5.25vw,72px);
+  line-height:.98;letter-spacing:-.045em
+}
 .heroStatement{
-  margin:15px 0 0;max-width:720px;font-size:clamp(18px,1.7vw,24px);
-  line-height:1.35;color:white;font-weight:500;letter-spacing:-.018em
+  margin:0;max-width:720px;font-size:clamp(15px,1.35vw,19px);
+  line-height:1.35;color:rgba(255,255,255,.94);font-weight:600;letter-spacing:.005em
 }
 
 /* research */
@@ -230,8 +242,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       linear-gradient(0deg,rgba(3,18,20,.34) 0%,rgba(3,18,20,0) 48%)
   }
   .heroContent{padding-bottom:42px}
-  .heroRole{font-size:14px}
-  .heroStatement{font-size:18px;max-width:520px}
+  .heroIdentity{font-size:13px;margin-bottom:14px}
+  .heroText h1{font-size:clamp(38px,11vw,52px);max-width:620px}
+  .heroStatement{font-size:15px;max-width:520px}
   .researchSection{padding-top:58px}
   .section{padding:68px 0}
   .fieldworkSection{padding-top:76px;padding-bottom:76px}
@@ -250,6 +263,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <nav>
   <div class="wrap navin">
+    <a class="navBrand" href="#top">Oleg Artaev</a>
     <div class="navlinks">
       <a href="#research">Research</a>
       <a href="#coverage">Field coverage</a>
@@ -268,16 +282,26 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <img src="assets/hero-river-aerial-20260927.jpg" width="2048" height="1152" alt="Freshwater river landscape photographed during fieldwork">
   <div class="wrap heroContent">
     <div class="heroText">
-      <h1>Oleg Artaev</h1>
-      <p class="heroRole">Ichthyologist · freshwater fish evolution &amp; biogeography</p>
-      <p class="heroStatement">Freshwater fish diversity across Eurasian river systems.</p>
+      <div class="heroIdentity">
+        <span class="heroName">Oleg Artaev</span>
+        <span class="sep">·</span>
+        <span>Ichthyologist</span>
+      </div>
+      <h1>Freshwater fish diversity across Eurasian river systems.</h1>
+      <p class="heroStatement">Evolution · biogeography · integrative taxonomy</p>
     </div>
   </div>
 </section>
 
 <section class="section researchSection" id="research">
   <div class="wrap">
-    <div class="eyebrow researchLabel">Research</div>
+    <div class="sectionHead">
+      <div class="eyebrow">Research program</div>
+      <div>
+        <h2>Freshwater fish evolution across changing river systems.</h2>
+        <p class="sectionLead">Species boundaries, phylogeographic history and distribution across Eurasia.</p>
+      </div>
+    </div>
 
     <div class="researchGrid">
       <article class="researchCard">
@@ -415,8 +439,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     </div>
     <div class="aboutCopy">
       <div class="eyebrow">About</div>
-      <h2>Senior Research Scientist</h2>
-      <p>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
+      <h2>Oleg Artaev</h2>
+      <p><strong>Senior Research Scientist</strong><br>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
       <div class="contactLine">
         <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
         <a href="https://scholar.google.com/citations?hl=en&amp;user=NCxOTqcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
