@@ -198,11 +198,17 @@ nav{
 .aboutGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:44px;align-items:center}
 .aboutPhoto{display:block;overflow:hidden;border-radius:18px;background:#dfe8e4}
 .aboutPhoto img{display:block;width:100%;height:auto}
-.aboutCopy{max-width:620px}
+.aboutCopy{max-width:650px}
 .aboutCopy .eyebrow{margin-bottom:14px}
-.aboutCopy h2{font-size:clamp(28px,3vw,42px);margin-bottom:12px}
+.aboutCopy h2{font-size:clamp(28px,3vw,42px);margin-bottom:16px}
+.aboutLead{font-size:17px!important;line-height:1.55;color:var(--ink);margin-bottom:14px}
 .aboutCopy p{font-size:15px}
-.contactLine{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.aboutIdentity{
+  margin-top:20px;padding-top:17px;border-top:1px solid #cedbd6;
+  font-size:12px!important;line-height:1.55;color:#718484
+}
+.aboutIdentity strong{color:var(--ink)}
+.contactLine{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .contactLine a{
   display:inline-flex;align-items:center;min-height:38px;border:1px solid #c0cdc9;
   padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800
@@ -438,11 +444,14 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       <img src="assets/about-field-portrait-crop.png" width="1512" height="720" alt="Fieldwork in eastern Eurasia">
     </div>
     <div class="aboutCopy">
-      <div class="eyebrow">About</div>
-      <h2>Oleg Artaev</h2>
-      <p><strong>Senior Research Scientist</strong><br>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
+      <div class="eyebrow">About · collaboration</div>
+      <h2>Field systems, collections and tools for evolutionary research.</h2>
+      <p class="aboutLead">I study how freshwater fish lineages diverge across Eurasian river networks, combining field sampling, morphology, genetics and spatial data.</p>
+      <p>My current work centres on geographically replicated <em>Phoxinus</em> systems and is expanding toward population-genomic questions about historical connectivity, introgression and lineage boundaries.</p>
+      <p>I am especially interested in collaborations where biological systems, study design and genomic or analytical work are developed jointly from the start.</p>
+      <p class="aboutIdentity"><strong>Oleg Artaev</strong> · Senior Research Scientist<br>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences</p>
       <div class="contactLine">
-        <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
+        <a class="primary" href="mailto:oleg@olegartaev.com">Discuss a collaboration</a>
         <a href="https://scholar.google.com/citations?hl=en&amp;user=NCxOTqcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
         <a href="https://www.researchgate.net/profile/Oleg-Artaev" target="_blank" rel="noopener">ResearchGate ↗</a>
       </div>
