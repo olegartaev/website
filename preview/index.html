@@ -62,35 +62,28 @@ nav{
 
 /* hero */
 .hero{
-  position:relative;height:min(780px,88vh);min-height:610px;
+  position:relative;width:min(100%,2048px);aspect-ratio:16/9;margin:0 auto;
   background:#173a3d;overflow:hidden;color:white
 }
 .hero img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 48%
+  object-fit:cover;object-position:center center
 }
 .hero:before{
-  content:"";position:absolute;z-index:1;inset:0;
-  background:linear-gradient(to bottom,rgba(3,18,20,0) 0%,rgba(3,18,20,0) 62%,rgba(3,18,20,.28) 100%)
+  content:"";position:absolute;z-index:1;left:0;right:0;bottom:0;height:150px;
+  background:linear-gradient(to bottom,rgba(251,252,250,0) 0%,rgba(251,252,250,.22) 42%,var(--paper) 100%);
+  pointer-events:none
 }
 .heroContent{
-  position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:46px
+  position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:126px
 }
-.heroText{max-width:720px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
-.heroText p{font-size:16px;color:rgba(255,255,255,.92);margin:0;font-weight:600}
+.heroText{max-width:720px;text-shadow:0 2px 18px rgba(0,0,0,.34)}
+.heroText p{font-size:16px;color:rgba(255,255,255,.94);margin:0;font-weight:600}
 
 /* research */
 .researchGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .researchCard{padding:25px 0 5px;border-top:2px solid #c9d8d3}
 .researchCard p{font-size:14px;margin:0;max-width:350px}
-.methodLine{
-  margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
-  display:flex;gap:10px;flex-wrap:wrap
-}
-.methodLine span{
-  font-size:11px;font-weight:700;color:#4f6968;border:1px solid #cbd7d3;
-  padding:7px 10px;border-radius:999px;background:white
-}
 
 /* field coverage */
 .coverageHead{margin-bottom:34px}
@@ -157,29 +150,25 @@ nav{
 .pub .doi{margin-top:12px;font-size:12px;font-weight:800;color:var(--accent)}
 
 /* tool */
-.toolRow{
-  display:grid;grid-template-columns:.95fr 1.05fr;
-  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:white
+.toolHead{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);
+  gap:54px;align-items:end
 }
-.toolVisual{min-height:340px;background:#e7eeeb;position:relative}
-.toolUI{
-  position:absolute;inset:34px;border:1px solid #c9d5d1;border-radius:12px;background:#f6f8f7;
-  box-shadow:0 18px 38px rgba(10,35,40,.11)
+.toolIdentity{display:flex;align-items:center;gap:16px}
+.toolIcon{
+  width:58px;height:58px;flex:0 0 58px;border-radius:14px;
+  box-shadow:0 8px 22px rgba(10,35,40,.12)
 }
-.uiTop{
-  height:42px;background:#18363a;color:white;display:flex;align-items:center;justify-content:space-between;
-  padding:0 14px;border-radius:11px 11px 0 0;font-size:11px
+.toolIdentity .eyebrow{margin-bottom:8px}
+.toolIdentity h2{margin:0}
+.toolIntro{font-size:16px;max-width:610px;margin:0}
+.toolMeta{display:flex;gap:12px;align-items:center;margin-top:13px;font-size:12px;color:#718484}
+.toolMeta a{font-weight:800;color:var(--accent)}
+.toolShot{
+  display:block;width:min(1480px,calc(100vw - 32px));max-width:none;
+  margin:34px 0 0 50%;transform:translateX(-50%);cursor:zoom-in
 }
-.uiBody{position:absolute;left:0;right:0;top:42px;bottom:0;background:linear-gradient(#fcfdfd,#eef3f1)}
-.fishShape{position:absolute;left:14%;right:19%;top:47%;height:48px;border-radius:56% 42% 45% 51%;background:#b4c8c2}
-.fishShape:after{content:"";position:absolute;right:-48px;top:-13px;border-left:60px solid #9cafaa;border-top:37px solid transparent;border-bottom:37px solid transparent}
-.dot{position:absolute;width:9px;height:9px;border-radius:50%;background:#2f746d;border:2px solid white;box-shadow:0 0 0 1px #2f746d}
-.d1{left:27%;top:49%}.d2{left:41%;top:44%}.d3{left:55%;top:51%}.d4{left:68%;top:46%}.d5{left:75%;top:54%}
-.toolCopy{padding:42px;display:flex;flex-direction:column;justify-content:center}
-.toolCopy .eyebrow{margin-bottom:12px}
-.toolCopy h3{font-size:30px}
-.toolCopy p{font-size:15px;max-width:600px;margin-bottom:0}
-
+.toolShot img{display:block;width:100%;height:auto}
 /* about */
 .aboutGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:44px;align-items:center}
 .aboutPhoto{display:block;overflow:hidden;border-radius:18px;background:#dfe8e4}
@@ -214,7 +203,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .sectionHead{grid-template-columns:1fr;gap:16px}
   .aboutGrid{grid-template-columns:1fr;gap:26px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
-  .projectStrip,.toolRow{grid-template-columns:1fr}
+  .projectStrip{grid-template-columns:1fr}
+  .toolHead{grid-template-columns:1fr;gap:18px}
   .fieldGrid{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px}
   .photo.fieldMain{grid-column:1/span 2}
 }
@@ -222,9 +212,10 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .wrap{width:calc(100% - 30px)}
   .navin{height:64px}
   .navlinks a:not(.contact){display:none}
-  .hero{height:76vh;min-height:540px}
+  .hero{width:100%;aspect-ratio:auto;height:76vh;min-height:520px}
   .hero img{object-position:58% center}
-  .heroContent{padding-bottom:32px}
+  .hero:before{height:120px}
+  .heroContent{padding-bottom:98px}
   .heroText p{font-size:15px}
   .section{padding:68px 0}
   .fieldworkSection{padding-top:76px;padding-bottom:76px}
@@ -232,9 +223,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .photo.fieldMain{grid-column:auto}
   .projectText{padding:28px}
   .projectMedia{min-height:280px}
-  .toolVisual{min-height:290px}
-  .toolUI{inset:24px 16px}
-  .toolCopy{padding:28px}
+  .toolIcon{width:50px;height:50px;flex-basis:50px}
+  .toolShot{width:calc(100vw - 20px);margin-top:26px}
   .foot{flex-direction:column}
 }
 </style>
@@ -258,7 +248,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 <main id="top">
 
 <section class="hero">
-  <img src="assets/hero-panorama-original-2048.jpg" width="2048" height="1152" alt="Freshwater river landscape photographed during fieldwork">
+  <img src="assets/hero-panorama-source-20260926.jpg" width="2048" height="1152" alt="Freshwater river landscape photographed during fieldwork">
   <div class="wrap heroContent">
     <div class="heroText">
       <h1>Oleg Artaev</h1>
@@ -273,7 +263,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       <div class="eyebrow">Research</div>
       <div>
         <h2>Freshwater fish diversity across Eurasian river systems.</h2>
-        <p class="sectionLead">Field collections, specimens, molecular data and spatial analysis.</p>
+        <p class="sectionLead">Field collections and voucher specimens provide the basis for morphology, molecular data and spatial analysis.</p>
       </div>
     </div>
 
@@ -290,14 +280,6 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
         <h3>Distribution &amp; environment</h3>
         <p>Species distributions, habitat and environmental change.</p>
       </article>
-    </div>
-
-    <div class="methodLine">
-      <span>Field collections</span>
-      <span>Voucher specimens</span>
-      <span>Morphology &amp; imaging</span>
-      <span>Molecular data</span>
-      <span>GIS &amp; spatial analysis</span>
     </div>
   </div>
 </section>
@@ -391,29 +373,26 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <section class="section" id="tools">
   <div class="wrap">
-    <div class="sectionHead">
-      <div class="eyebrow">Research tool</div>
+    <div class="toolHead">
+      <div class="toolIdentity">
+        <img class="toolIcon" src="assets/morpholabel-icon.png" width="64" height="64" alt="">
+        <div>
+          <div class="eyebrow">Research software</div>
+          <h2>MorphoLabel</h2>
+        </div>
+      </div>
       <div>
-        <h2>MorphoLabel</h2>
+        <p class="toolIntro">Open-source software for annotation and review of biological morphology, beginning with landmark-based fish workflows.</p>
+        <div class="toolMeta">
+          <span>In development</span>
+          <a href="https://github.com/olegartaev/MorphoLabel" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
     </div>
 
-    <div class="toolRow">
-      <div class="toolVisual">
-        <div class="toolUI">
-          <div class="uiTop"><span>MorphoLabel</span><span>Landmarks</span></div>
-          <div class="uiBody">
-            <div class="fishShape"></div>
-            <i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i>
-          </div>
-        </div>
-      </div>
-      <div class="toolCopy">
-        <div class="eyebrow">Open-source · in development</div>
-        <h3>Biological image annotation</h3>
-        <p>Software for faster annotation and review of biological morphology, beginning with landmark-based fish workflows.</p>
-      </div>
-    </div>
+    <a class="toolShot zoomable" href="assets/morpholabel-landmarks-screen.jpg">
+      <img src="assets/morpholabel-landmarks-screen.jpg" width="1630" height="985" alt="MorphoLabel landmark annotation interface">
+    </a>
   </div>
 </section>
 
