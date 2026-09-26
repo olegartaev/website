@@ -47,13 +47,14 @@ p{color:var(--muted)}
 
 /* navigation */
 nav{
-  position:absolute;z-index:30;left:0;right:0;top:0;color:white
+  position:absolute;z-index:30;left:0;right:0;top:0;color:white;
+  background:rgba(5,22,25,.58);backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)
 }
 .navin{
-  height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px
+  height:64px;display:flex;align-items:center;justify-content:flex-end;gap:24px
 }
-.brand{font-size:16px;font-weight:800}
-.navlinks{display:flex;align-items:center;gap:20px;font-size:13px;color:rgba(255,255,255,.88)}
+.navlinks{display:flex;align-items:center;gap:20px;font-size:13px;color:rgba(255,255,255,.94)}
 .navlinks a:hover{color:white}
 .navlinks .contact{
   border:1px solid rgba(255,255,255,.52);padding:7px 12px;border-radius:999px;color:#fff
@@ -70,7 +71,7 @@ nav{
 }
 .hero:before{
   content:"";position:absolute;z-index:1;inset:0;
-  background:linear-gradient(to bottom,rgba(3,18,20,.15) 0%,rgba(3,18,20,0) 34%,rgba(3,18,20,0) 65%,rgba(3,18,20,.34) 100%)
+  background:linear-gradient(to bottom,rgba(3,18,20,0) 0%,rgba(3,18,20,0) 62%,rgba(3,18,20,.28) 100%)
 }
 .heroContent{
   position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding-bottom:46px
@@ -180,9 +181,12 @@ nav{
 .toolCopy p{font-size:15px;max-width:600px;margin-bottom:0}
 
 /* about */
-.aboutGrid{display:grid;grid-template-columns:210px 1fr;gap:64px}
-.aboutCopy{max-width:780px}
-.aboutCopy .role{font-size:21px;font-weight:700;color:var(--ink);margin-bottom:12px}
+.aboutGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:44px;align-items:center}
+.aboutPhoto{display:block;overflow:hidden;border-radius:18px;background:#dfe8e4}
+.aboutPhoto img{display:block;width:100%;height:auto}
+.aboutCopy{max-width:620px}
+.aboutCopy .eyebrow{margin-bottom:14px}
+.aboutCopy h2{font-size:clamp(28px,3vw,42px);margin-bottom:12px}
 .aboutCopy p{font-size:15px}
 .contactLine{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .contactLine a{
@@ -207,7 +211,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 }
 
 @media(max-width:980px){
-  .sectionHead,.aboutGrid{grid-template-columns:1fr;gap:16px}
+  .sectionHead{grid-template-columns:1fr;gap:16px}
+  .aboutGrid{grid-template-columns:1fr;gap:26px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
   .projectStrip,.toolRow{grid-template-columns:1fr}
   .fieldGrid{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px}
@@ -238,7 +243,6 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <nav>
   <div class="wrap navin">
-    <a class="brand" href="#top">Oleg Artaev</a>
     <div class="navlinks">
       <a href="#research">Research</a>
       <a href="#coverage">Field coverage</a>
@@ -254,7 +258,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 <main id="top">
 
 <section class="hero">
-  <img src="assets/hero-panorama.webp" alt="Freshwater river landscape photographed during fieldwork">
+  <img src="assets/hero-panorama-original-2048.jpg" width="2048" height="1152" alt="Freshwater river landscape photographed during fieldwork">
   <div class="wrap heroContent">
     <div class="heroText">
       <h1>Oleg Artaev</h1>
@@ -349,21 +353,21 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
         <div class="pubTop"><span>2025</span><span>Central Asia · biodiversity</span></div>
         <h3>Ichthyofauna of Tajikistan: Diversity and Changes over the Past Century</h3>
         <div class="journal">American Museum Novitates 4032: 1–55</div>
-        <a class="doi" href="https://doi.org/10.1206/4032.1" target="_blank" rel="noopener">Open paper ↗</a>
+        <a class="doi" href="https://doi.org/10.1206/4032.1" target="_blank" rel="noopener">DOI 10.1206/4032.1 ↗</a>
       </article>
 
       <article class="pub">
         <div class="pubTop"><span>2025</span><span>Caucasus · systematics</span></div>
         <h3>A new super narrow-ranged endemic <em>Phoxinus</em> minnow (Leuciscidae) from the Caucasus</h3>
         <div class="journal">Zoosystematics and Evolution 101(3): 1137–1154</div>
-        <a class="doi" href="https://doi.org/10.3897/zse.101.153548" target="_blank" rel="noopener">Open paper ↗</a>
+        <a class="doi" href="https://doi.org/10.3897/zse.101.153548" target="_blank" rel="noopener">DOI 10.3897/zse.101.153548 ↗</a>
       </article>
 
       <article class="pub">
         <div class="pubTop"><span>2023</span><span>Europe · species distributions</span></div>
         <h3>Prediction of Current and Future Suitable Habitats for Three Invasive Freshwater Fish Species in Europe</h3>
         <div class="journal">Water 15(11): 2091</div>
-        <a class="doi" href="https://doi.org/10.3390/w15112091" target="_blank" rel="noopener">Open paper ↗</a>
+        <a class="doi" href="https://doi.org/10.3390/w15112091" target="_blank" rel="noopener">DOI 10.3390/w15112091 ↗</a>
       </article>
     </div>
   </div>
@@ -415,10 +419,12 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <section class="section soft" id="about">
   <div class="wrap aboutGrid">
-    <div class="eyebrow">About</div>
+    <div class="aboutPhoto">
+      <img src="assets/about-field-portrait-crop.png" width="1512" height="720" alt="Fieldwork in eastern Eurasia">
+    </div>
     <div class="aboutCopy">
-      <h2>Oleg Artaev</h2>
-      <p class="role">Ichthyologist · Senior Research Scientist</p>
+      <div class="eyebrow">About</div>
+      <h2>Senior Research Scientist</h2>
       <p>Papanin Institute for Biology of Inland Waters, Russian Academy of Sciences.</p>
       <div class="contactLine">
         <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
@@ -433,7 +439,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <footer>
   <div class="wrap foot">
-    <div><strong>Oleg Artaev</strong><br>Freshwater fish diversity · evolution · biogeography</div>
+    <div>Freshwater fish evolution · biogeography</div>
     <div>olegartaev.com</div>
   </div>
 </footer>
