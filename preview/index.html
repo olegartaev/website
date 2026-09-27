@@ -89,8 +89,13 @@ nav{
   -webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)
 }
 .navin{
-  height:64px;display:flex;align-items:center;justify-content:flex-end;gap:24px
+  height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px
 }
+.navBrand{
+  font-size:13.5px;font-weight:750;letter-spacing:-.01em;color:rgba(255,255,255,.92);
+  white-space:nowrap
+}
+.navBrand:hover{color:white}
 .navlinks{display:flex;align-items:center;gap:20px;font-size:13px;color:rgba(255,255,255,.94)}
 .navlinks a:hover{color:white}
 .navlinks .contact{
@@ -410,6 +415,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 
 <nav>
   <div class="wrap navin">
+    <a class="navBrand" href="#top" aria-label="Oleg Artaev — home">Oleg Artaev</a>
     <div class="navlinks">
       <a href="#research">Research</a>
       <a href="#coverage">Field coverage</a>
