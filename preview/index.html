@@ -343,7 +343,11 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   width:max-content;height:max-content;min-width:100%;min-height:100%;
   align-items:flex-start;justify-content:flex-start
 }
-.lightbox.native img{max-width:none;max-height:none;cursor:zoom-out}
+.lightbox.native img{
+  max-width:none;max-height:none;cursor:grab;
+  touch-action:pan-x pan-y
+}
+.lightbox.native img.dragging{cursor:grabbing}
 .lightboxControls{
   position:fixed;z-index:1002;top:14px;right:18px;display:flex;gap:6px;
   padding:4px;border-radius:999px;background:rgba(7,25,28,.68);
@@ -570,11 +574,11 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       </div>
       <div class="imagingPreviews">
         <a class="imagingPreview zoomable" href="assets/live-imaging-phoxinus-isetensis.jpg">
-          <img src="assets/live-imaging-phoxinus-isetensis.jpg" width="2048" height="1266" alt="Live Phoxinus isetensis photographed in field conditions before preservation">
+          <img src="assets/live-imaging-phoxinus-isetensis.jpg" width="5616" height="3472" alt="Live Phoxinus isetensis photographed in field conditions before preservation">
           <span><em>Phoxinus isetensis</em></span>
         </a>
         <a class="imagingPreview zoomable" href="assets/live-imaging-barbatula-sp.jpg">
-          <img src="assets/live-imaging-barbatula-sp.jpg" width="2048" height="1351" alt="Live Barbatula specimen photographed in field conditions before preservation">
+          <img src="assets/live-imaging-barbatula-sp.jpg" width="6048" height="3992" alt="Live Barbatula specimen photographed in field conditions before preservation">
           <span><em>Barbatula</em> sp.</span>
         </a>
       </div>
@@ -667,11 +671,22 @@ const big=document.getElementById('lightboxImage');
 const fitBtn=document.getElementById('lightboxFit');
 const nativeBtn=document.getElementById('lightboxNative');
 
+function centerNativeView(){
+  requestAnimationFrame(()=>{
+    lb.scrollLeft=Math.max(0,(lb.scrollWidth-lb.clientWidth)/2);
+    lb.scrollTop=Math.max(0,(lb.scrollHeight-lb.clientHeight)/2);
+  });
+}
 function setLightboxZoom(native){
   lb.classList.toggle('native',native);
   fitBtn.classList.toggle('active',!native);
   nativeBtn.classList.toggle('active',native);
-  if(!native){lb.scrollTo(0,0)}
+  if(native){
+    if(big.complete) centerNativeView();
+    else big.addEventListener('load',centerNativeView,{once:true});
+  }else{
+    lb.scrollTo(0,0)
+  }
 }
 document.querySelectorAll('.zoomable').forEach(a=>{
   a.addEventListener('click',e=>{
@@ -692,7 +707,41 @@ function closeLB(){
 }
 fitBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(false)});
 nativeBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(true)});
-big.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(!lb.classList.contains('native'))});
+
+let pan=null;
+let suppressImageClick=false;
+
+big.addEventListener('mousedown',e=>{
+  if(!lb.classList.contains('native')||e.button!==0)return;
+  e.preventDefault();
+  pan={
+    x:e.clientX,y:e.clientY,
+    left:lb.scrollLeft,top:lb.scrollTop,
+    moved:false
+  };
+  big.classList.add('dragging');
+});
+window.addEventListener('mousemove',e=>{
+  if(!pan)return;
+  const dx=e.clientX-pan.x;
+  const dy=e.clientY-pan.y;
+  if(Math.abs(dx)>3||Math.abs(dy)>3)pan.moved=true;
+  lb.scrollLeft=pan.left-dx;
+  lb.scrollTop=pan.top-dy;
+});
+window.addEventListener('mouseup',()=>{
+  if(!pan)return;
+  suppressImageClick=pan.moved;
+  pan=null;
+  big.classList.remove('dragging');
+  if(suppressImageClick)setTimeout(()=>{suppressImageClick=false},0);
+});
+
+big.addEventListener('click',e=>{
+  e.stopPropagation();
+  if(suppressImageClick)return;
+  setLightboxZoom(!lb.classList.contains('native'));
+});
 lb.addEventListener('click',e=>{if(e.target===lb||e.target===stage)closeLB()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 </script>
