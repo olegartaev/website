@@ -322,6 +322,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;
   pointer-events:auto;cursor:zoom-in;user-select:none
 }
+.lightbox img.fitNative{cursor:zoom-out}
 .lightbox.native .lightboxStage{
   width:max-content;height:max-content;min-width:100%;min-height:100%;
   align-items:flex-start;justify-content:flex-start
@@ -650,15 +651,28 @@ function centerNativeView(){
     lb.scrollTop=Math.max(0,(lb.scrollHeight-lb.clientHeight)/2);
   });
 }
+function fitIsNativeSize(){
+  if(!big.naturalWidth||!big.naturalHeight)return false;
+  const rect=big.getBoundingClientRect();
+  return rect.width>=big.naturalWidth-1&&rect.height>=big.naturalHeight-1;
+}
+function updateFitState(){
+  requestAnimationFrame(()=>{
+    big.classList.toggle('fitNative',!lb.classList.contains('native')&&fitIsNativeSize());
+  });
+}
 function setLightboxZoom(native){
   lb.classList.toggle('native',native);
   fitBtn.classList.toggle('active',!native);
   nativeBtn.classList.toggle('active',native);
+  big.classList.remove('fitNative');
   if(native){
     if(big.complete) centerNativeView();
     else big.addEventListener('load',centerNativeView,{once:true});
   }else{
-    lb.scrollTo(0,0)
+    lb.scrollTo(0,0);
+    if(big.complete) updateFitState();
+    else big.addEventListener('load',updateFitState,{once:true});
   }
 }
 document.querySelectorAll('.zoomable').forEach(a=>{
@@ -675,6 +689,7 @@ document.querySelectorAll('.zoomable').forEach(a=>{
 });
 function closeLB(){
   lb.classList.remove('open','native');
+  big.classList.remove('fitNative','dragging');
   big.src='';
   document.body.style.overflow=''
 }
@@ -714,9 +729,14 @@ window.addEventListener('mouseup',()=>{
 big.addEventListener('click',e=>{
   e.stopPropagation();
   if(suppressImageClick)return;
-  setLightboxZoom(!lb.classList.contains('native'));
+  if(lb.classList.contains('native')||fitIsNativeSize()){
+    closeLB();
+    return;
+  }
+  setLightboxZoom(true);
 });
 lb.addEventListener('click',e=>{if(e.target===lb||e.target===stage)closeLB()});
+window.addEventListener('resize',()=>{if(lb.classList.contains('open')&&!lb.classList.contains('native'))updateFitState()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 </script>
 </body>
