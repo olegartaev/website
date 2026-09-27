@@ -359,6 +359,11 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   cursor:pointer
 }
 .lightboxControls button.active{background:rgba(255,255,255,.14);color:white}
+.lightboxControls .lightboxClose{
+  margin-left:2px;padding:5px 9px;font-size:16px;line-height:1;
+  color:rgba(255,255,255,.88);background:rgba(255,255,255,.06)
+}
+.lightboxControls .lightboxClose:hover{background:rgba(255,255,255,.14);color:white}
 
 @media(max-width:980px){
   .sectionHead{grid-template-columns:1fr;gap:16px}
@@ -658,6 +663,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <div class="lightboxControls" aria-label="Image zoom">
     <button type="button" id="lightboxFit" class="active">Fit</button>
     <button type="button" id="lightboxNative">100%</button>
+    <button type="button" id="lightboxClose" class="lightboxClose" aria-label="Close image" title="Close">×</button>
   </div>
   <div class="lightboxStage" id="lightboxStage">
     <img id="lightboxImage" alt="">
@@ -670,6 +676,7 @@ const stage=document.getElementById('lightboxStage');
 const big=document.getElementById('lightboxImage');
 const fitBtn=document.getElementById('lightboxFit');
 const nativeBtn=document.getElementById('lightboxNative');
+const closeBtn=document.getElementById('lightboxClose');
 
 function centerNativeView(){
   requestAnimationFrame(()=>{
@@ -707,6 +714,7 @@ function closeLB(){
 }
 fitBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(false)});
 nativeBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(true)});
+closeBtn.addEventListener('click',e=>{e.stopPropagation();closeLB()});
 
 let pan=null;
 let suppressImageClick=false;
