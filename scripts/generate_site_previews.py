@@ -12,6 +12,10 @@ ITEMS = [
     ("habitat-forest.webp", "habitat-forest.webp", 1920, "WEBP", 94),
     ("live-imaging-phoxinus-isetensis.jpg", "live-imaging-phoxinus-isetensis.jpg", 2000, "JPEG", 95),
     ("live-imaging-barbatula-sp.jpg", "live-imaging-barbatula-sp.jpg", 2000, "JPEG", 95),
+    ("field-sampling-riverbank.jpg", "field-sampling-riverbank.webp", 1920, "WEBP", 94),
+    ("field-river-landscape-aerial.jpg", "field-river-landscape-aerial.webp", 1920, "WEBP", 94),
+    ("field-camp-aerial.jpg", "field-camp-aerial.webp", 1920, "WEBP", 94),
+    ("field-basecamp-mountains.jpg", "field-basecamp-mountains.webp", 1920, "WEBP", 94),
 ]
 
 for src_name, dst_name, max_edge, fmt, quality in ITEMS:

@@ -9,6 +9,10 @@ on:
       - "assets/habitat-forest.webp"
       - "assets/live-imaging-phoxinus-isetensis.jpg"
       - "assets/live-imaging-barbatula-sp.jpg"
+      - "assets/field-sampling-riverbank.jpg"
+      - "assets/field-river-landscape-aerial.jpg"
+      - "assets/field-camp-aerial.jpg"
+      - "assets/field-basecamp-mountains.jpg"
       - "scripts/generate_site_previews.py"
       - ".github/workflows/generate-site-previews.yml"
   workflow_dispatch:
