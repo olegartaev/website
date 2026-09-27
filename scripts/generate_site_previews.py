@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "preview" / "assets"
+ASSETS = ROOT / "assets"
 OUT = ASSETS / "previews"
 OUT.mkdir(parents=True, exist_ok=True)
 
