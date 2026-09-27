@@ -220,6 +220,29 @@ nav{
   background:rgba(7,31,34,.55);backdrop-filter:blur(6px);
   color:white;font-size:10.5px;font-weight:700
 }
+.imagingInline{
+  display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);
+  gap:34px;align-items:center;margin-top:26px;padding-top:22px;
+  border-top:1px solid rgba(23,48,52,.10)
+}
+.imagingCopy .eyebrow{margin-bottom:8px}
+.imagingCopy p{
+  margin:0;max-width:430px;font-size:13px;line-height:1.5;color:#6b7f80
+}
+.imagingPreviews{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.imagingPreview{
+  position:relative;display:block;height:132px;overflow:hidden;border-radius:12px;
+  background:#292b2b;cursor:zoom-in;border:1px solid rgba(23,48,52,.10)
+}
+.imagingPreview img{
+  width:100%;height:100%;object-fit:contain;transition:transform .22s ease
+}
+.imagingPreview:hover img{transform:scale(1.008)}
+.imagingPreview span{
+  position:absolute;left:9px;bottom:8px;padding:4px 7px;border-radius:999px;
+  background:rgba(7,20,22,.56);backdrop-filter:blur(5px);
+  color:white;font-size:9.5px;font-weight:700
+}
 
 /* current project */
 .projectStrip{
@@ -304,11 +327,34 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 .foot{display:flex;justify-content:space-between;gap:24px;font-size:12px}
 .foot strong{color:white}
 .lightbox{
-  position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:22px;
+  position:fixed;inset:0;display:none;overflow:auto;
   background:rgba(2,10,12,.96);z-index:1000;cursor:zoom-out
 }
-.lightbox.open{display:flex}
-.lightbox img{max-width:96vw;max-height:94vh;width:auto;height:auto;object-fit:contain;pointer-events:none}
+.lightbox.open{display:block}
+.lightboxStage{
+  min-width:100%;min-height:100%;display:flex;align-items:center;justify-content:center;
+  padding:58px 22px 22px
+}
+.lightbox img{
+  max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;
+  pointer-events:auto;cursor:zoom-in;user-select:none
+}
+.lightbox.native .lightboxStage{
+  width:max-content;height:max-content;min-width:100%;min-height:100%;
+  align-items:flex-start;justify-content:flex-start
+}
+.lightbox.native img{max-width:none;max-height:none;cursor:zoom-out}
+.lightboxControls{
+  position:fixed;z-index:1002;top:14px;right:18px;display:flex;gap:6px;
+  padding:4px;border-radius:999px;background:rgba(7,25,28,.68);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
+}
+.lightboxControls button{
+  border:0;border-radius:999px;padding:6px 10px;background:transparent;
+  color:rgba(255,255,255,.76);font:700 11px/1 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  cursor:pointer
+}
+.lightboxControls button.active{background:rgba(255,255,255,.14);color:white}
 
 @media(max-width:980px){
   .sectionHead{grid-template-columns:1fr;gap:16px}
@@ -317,6 +363,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .projectStrip{grid-template-columns:1fr}
   .toolCard{grid-template-columns:1fr;gap:24px}
   .toolShot{margin:0;max-width:560px}
+  .imagingInline{grid-template-columns:1fr;gap:14px}
 }
 @media(max-width:760px){
   .wrap{width:calc(100% - 30px)}
@@ -375,6 +422,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .fieldworkSection{padding-top:52px;padding-bottom:58px}
   .fieldworkHead{margin-bottom:16px}
   .photo{flex-basis:82vw;height:176px}
+  .imagingInline{margin-top:22px;padding-top:18px}
+  .imagingPreviews{grid-template-columns:1fr 1fr;gap:8px}
+  .imagingPreview{height:108px}
   .projectText{padding:28px}
   .projectMedia{min-height:280px}
   .toolCard{padding:24px}
@@ -512,6 +562,23 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
         <span>Chakvistkali River · Transcaucasia</span>
       </a>
     </div>
+
+    <div class="imagingInline">
+      <div class="imagingCopy">
+        <div class="eyebrow">Live-specimen imaging</div>
+        <p>High-resolution imaging in field conditions preserves colour and fine external phenotypic detail before fixation.</p>
+      </div>
+      <div class="imagingPreviews">
+        <a class="imagingPreview zoomable" href="assets/live-imaging-phoxinus-isetensis.jpg">
+          <img src="assets/live-imaging-phoxinus-isetensis.jpg" width="2048" height="1266" alt="Live Phoxinus isetensis photographed in field conditions before preservation">
+          <span><em>Phoxinus isetensis</em></span>
+        </a>
+        <a class="imagingPreview zoomable" href="assets/live-imaging-barbatula-sp.jpg">
+          <img src="assets/live-imaging-barbatula-sp.jpg" width="2048" height="1351" alt="Live Barbatula specimen photographed in field conditions before preservation">
+          <span><em>Barbatula</em> sp.</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -584,12 +651,28 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 </footer>
 
 <div class="lightbox" id="lightbox">
-  <img id="lightboxImage" alt="">
+  <div class="lightboxControls" aria-label="Image zoom">
+    <button type="button" id="lightboxFit" class="active">Fit</button>
+    <button type="button" id="lightboxNative">100%</button>
+  </div>
+  <div class="lightboxStage" id="lightboxStage">
+    <img id="lightboxImage" alt="">
+  </div>
 </div>
 
 <script>
 const lb=document.getElementById('lightbox');
+const stage=document.getElementById('lightboxStage');
 const big=document.getElementById('lightboxImage');
+const fitBtn=document.getElementById('lightboxFit');
+const nativeBtn=document.getElementById('lightboxNative');
+
+function setLightboxZoom(native){
+  lb.classList.toggle('native',native);
+  fitBtn.classList.toggle('active',!native);
+  nativeBtn.classList.toggle('active',native);
+  if(!native){lb.scrollTo(0,0)}
+}
 document.querySelectorAll('.zoomable').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
@@ -597,12 +680,20 @@ document.querySelectorAll('.zoomable').forEach(a=>{
     if(!im)return;
     big.src=a.getAttribute('href')||im.src;
     big.alt=im.alt||'';
+    setLightboxZoom(false);
     lb.classList.add('open');
     document.body.style.overflow='hidden';
   });
 });
-function closeLB(){lb.classList.remove('open');big.src='';document.body.style.overflow=''}
-lb.addEventListener('click',closeLB);
+function closeLB(){
+  lb.classList.remove('open','native');
+  big.src='';
+  document.body.style.overflow=''
+}
+fitBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(false)});
+nativeBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(true)});
+big.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(!lb.classList.contains('native'))});
+lb.addEventListener('click',e=>{if(e.target===lb||e.target===stage)closeLB()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 </script>
 </body>
