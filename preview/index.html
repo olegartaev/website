@@ -64,7 +64,7 @@ nav{
 .hero{
   position:relative;
   width:min(92vw,1680px);
-  height:clamp(520px,35vw,640px);
+  height:clamp(620px,43vw,760px);
   margin:0 auto;
   background:var(--paper);
   overflow:hidden;
@@ -85,10 +85,21 @@ nav{
   inset:0;
   background:
     linear-gradient(
+      180deg,
+      rgba(251,252,250,.04) 0%,
+      rgba(251,252,250,.08) 47%,
+      rgba(251,252,250,.16) 62%,
+      rgba(251,252,250,.34) 74%,
+      rgba(251,252,250,.56) 84%,
+      rgba(251,252,250,.76) 91%,
+      rgba(251,252,250,.91) 96%,
+      var(--paper) 100%
+    ),
+    linear-gradient(
       90deg,
-      rgba(3,18,20,.12) 0%,
-      rgba(3,18,20,.04) 26%,
-      rgba(3,18,20,0) 52%
+      rgba(3,18,20,.08) 0%,
+      rgba(3,18,20,.025) 24%,
+      rgba(3,18,20,0) 50%
     );
   pointer-events:none
 }
@@ -99,14 +110,14 @@ nav{
   left:0;
   right:0;
   bottom:0;
-  height:34%;
+  height:29%;
   background:linear-gradient(
     180deg,
     rgba(251,252,250,0) 0%,
-    rgba(251,252,250,.10) 18%,
-    rgba(251,252,250,.40) 42%,
-    rgba(251,252,250,.78) 68%,
-    rgba(251,252,250,.95) 86%,
+    rgba(251,252,250,.15) 20%,
+    rgba(251,252,250,.50) 48%,
+    rgba(251,252,250,.82) 70%,
+    rgba(251,252,250,.96) 87%,
     var(--paper) 100%
   );
   pointer-events:none
@@ -295,22 +306,33 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .navlinks a:not(.contact){display:none}
   .hero{
     width:100%;
-    height:500px;
+    height:590px;
     min-height:0
   }
   .hero img{
     object-position:56% 46%
   }
   .hero:before{
-    background:linear-gradient(
-      90deg,
-      rgba(3,18,20,.10) 0%,
-      rgba(3,18,20,.03) 66%,
-      rgba(3,18,20,0) 100%
-    )
+    background:
+      linear-gradient(
+        180deg,
+        rgba(251,252,250,.03) 0%,
+        rgba(251,252,250,.08) 43%,
+        rgba(251,252,250,.18) 60%,
+        rgba(251,252,250,.42) 76%,
+        rgba(251,252,250,.70) 88%,
+        rgba(251,252,250,.92) 96%,
+        var(--paper) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(3,18,20,.07) 0%,
+        rgba(3,18,20,.02) 66%,
+        rgba(3,18,20,0) 100%
+      )
   }
   .hero:after{
-    height:42%
+    height:34%
   }
   .heroContent{
     padding-bottom:18px
