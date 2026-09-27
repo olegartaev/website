@@ -759,7 +759,7 @@ big.addEventListener('touchstart',e=>{
   if(window.innerWidth>760)return;
   if(e.touches.length===2){
     e.preventDefault();
-    const [a,b]=e.touches;
+    const a=e.touches[0],b=e.touches[1];
     const rect=big.getBoundingClientRect();
     const centerX=(a.clientX+b.clientX)/2;
     const centerY=(a.clientY+b.clientY)/2;
@@ -803,7 +803,7 @@ big.addEventListener('touchmove',e=>{
   if(window.innerWidth>760||!touchGesture)return;
   if(touchGesture.mode==='pinch'&&e.touches.length>=2){
     e.preventDefault();
-    const [a,b]=e.touches;
+    const a=e.touches[0],b=e.touches[1];
     const distance=Math.hypot(b.clientX-a.clientX,b.clientY-a.clientY);
     const centerX=(a.clientX+b.clientX)/2;
     const centerY=(a.clientY+b.clientY)/2;
