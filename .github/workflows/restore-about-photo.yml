@@ -17,13 +17,17 @@ jobs:
       - name: Reconstruct exact uploaded JPEG
         shell: bash
         run: |
+          set -euo pipefail
           cat .staging/about-original.part* | tr -d '\n\r ' | base64 -d > preview/assets/about-field-alt.jpg
           echo "6f418fa5bccef641967f2a42cb49fc641cd3ca40e574b2bf8a9dca42ece37597  preview/assets/about-field-alt.jpg" | sha256sum -c -
-      - name: Commit exact image
+      - name: Commit exact image and remove staging files
         shell: bash
         run: |
+          set -euo pipefail
+          rm -rf .staging
+          rm -f .github/workflows/restore-about-photo.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add preview/assets/about-field-alt.jpg
+          git add -A
           git commit -m "Restore original About photo without recompression"
           git push
