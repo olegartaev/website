@@ -1,0 +1,29 @@
+name: Restore original About photo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".staging/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  restore-photo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct exact uploaded JPEG
+        shell: bash
+        run: |
+          cat .staging/about-original.part* | tr -d '\n\r ' | base64 -d > preview/assets/about-field-alt.jpg
+          echo "6f418fa5bccef641967f2a42cb49fc641cd3ca40e574b2bf8a9dca42ece37597  preview/assets/about-field-alt.jpg" | sha256sum -c -
+      - name: Commit exact image
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add preview/assets/about-field-alt.jpg
+          git commit -m "Restore original About photo without recompression"
+          git push
