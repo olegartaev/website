@@ -132,7 +132,19 @@ nav{
   padding-bottom:108px
 }
 .heroText{
-  max-width:900px
+  position:relative;isolation:isolate;max-width:900px
+}
+.heroText:before{
+  content:"";position:absolute;z-index:-1;
+  left:-46px;right:-100px;top:-42px;bottom:-34px;
+  background:radial-gradient(
+    ellipse at 26% 56%,
+    rgba(251,252,250,.68) 0%,
+    rgba(251,252,250,.42) 42%,
+    rgba(251,252,250,.15) 62%,
+    rgba(251,252,250,0) 76%
+  );
+  filter:blur(10px);pointer-events:none
 }
 .heroText h1{
   max-width:900px;
@@ -140,24 +152,28 @@ nav{
   font-size:clamp(40px,4.15vw,58px);
   line-height:1.01;
   letter-spacing:-.038em;
-  color:var(--ink)
+  color:#12373b;
+  font-weight:700;
+  text-shadow:0 1px 0 rgba(255,255,255,.82),0 4px 22px rgba(255,255,255,.52)
 }
 .heroRole{
   margin:0 0 8px;
   font-size:clamp(14px,1.04vw,16px);
   line-height:1.3;
-  color:#38575a;
-  font-weight:750;
-  letter-spacing:.01em
+  color:#28565a;
+  font-weight:800;
+  letter-spacing:.012em;
+  text-shadow:0 1px 12px rgba(255,255,255,.72)
 }
 .heroStatement{
   margin:0;
   max-width:760px;
   font-size:clamp(15px,1.12vw,17px);
   line-height:1.4;
-  color:#667a7c;
-  font-weight:500;
-  letter-spacing:.002em
+  color:#3f5e61;
+  font-weight:600;
+  letter-spacing:.002em;
+  text-shadow:0 1px 12px rgba(255,255,255,.68)
 }
 
 /* research */
@@ -166,19 +182,13 @@ nav{
 .researchGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .researchCard{padding:25px 0 5px;border-top:2px solid #c9d8d3}
 .researchCard p{font-size:14px;margin:0;max-width:350px}
-.researchPlatform{
-  display:grid;grid-template-columns:210px 1fr;gap:64px;
-  margin-top:34px;padding-top:24px;border-top:1px solid var(--line)
-}
-.researchPlatform strong{
-  font-size:12px;line-height:1.45;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)
-}
-.researchPlatform p{margin:0;max-width:790px;font-size:15px;line-height:1.55;color:#5e7374}
-
 /* field coverage */
-.coverageHead{margin-bottom:34px}
+.coverageHead{margin-bottom:28px}
 .coverageHead .eyebrow{margin-bottom:14px}
-.coverageHead h2{margin-bottom:0}
+.coverageHead h2{margin-bottom:12px}
+.coverageLead{
+  max-width:790px;margin:0;font-size:15px;line-height:1.55;color:#5e7374
+}
 .coverageMap{
   display:block;overflow:hidden;border-radius:18px;
   background:#e5ece9;border:1px solid var(--line);cursor:zoom-in
@@ -229,7 +239,15 @@ nav{
 .projectText{padding:42px;display:flex;flex-direction:column;justify-content:center}
 .projectText .eyebrow{margin-bottom:14px}
 .projectText h2{font-size:clamp(30px,3.2vw,44px);margin-bottom:14px}
-.projectText p{font-size:16px;max-width:520px;margin:0}
+.projectText p{font-size:16px;max-width:560px;margin:0}
+.projectNext{
+  margin-top:18px!important;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px!important;line-height:1.5!important;color:#697d7e!important
+}
+.projectNext strong{
+  color:var(--accent);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  margin-right:7px
+}
 
 /* publications */
 .pubGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -308,7 +326,6 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .sectionHead{grid-template-columns:1fr;gap:16px}
   .aboutGrid{grid-template-columns:1fr;gap:26px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
-  .researchPlatform{grid-template-columns:1fr;gap:8px}
   .projectStrip{grid-template-columns:1fr}
   .toolCard{grid-template-columns:1fr;gap:24px}
   .toolShot{margin:0;max-width:560px}
@@ -432,10 +449,6 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       </article>
     </div>
 
-    <div class="researchPlatform">
-      <strong>Field systems across Eurasia</strong>
-      <p>Georeferenced field collections connect vouchers, tissues, morphology and spatial data across river basins, with repeat access to selected systems.</p>
-    </div>
   </div>
 </section>
 
@@ -444,6 +457,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="coverageHead">
       <div class="eyebrow">Field coverage</div>
       <h2>Across Eurasia.</h2>
+      <p class="coverageLead">Georeferenced field collections connect vouchers, tissues, morphology and spatial data across river basins.</p>
     </div>
 
     <a class="coverageMap zoomable" href="assets/field-coverage-eurasia-20260927.jpg">
@@ -523,8 +537,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       </div>
       <div class="projectText">
         <div class="eyebrow">Current focus</div>
-        <h2><em>Phoxinus</em> across fragmented Eurasian river systems</h2>
-        <p>Repeatedly isolated lineages provide natural tests of divergence, convergence and historical connectivity.</p>
+        <h2><em>Phoxinus</em> of Eastern Europe and Asia</h2>
+        <p>Integrative taxonomy and biogeography across geographically fragmented lineages, combining morphology, mitochondrial data and geographic evidence.</p>
+        <p class="projectNext"><strong>Next direction</strong>Add population-genomic data to the existing material to test historical connectivity and divergence across selected systems.</p>
       </div>
     </div>
   </div>
@@ -563,8 +578,8 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <div class="aboutCopy">
       <div class="eyebrow">About</div>
       <h2>Senior Research Scientist working across Eurasian freshwater systems.</h2>
-      <p class="aboutLead">My work is built around field-based freshwater systems, specimen-linked collections and spatially explicit data.</p>
-      <p>Current directions increasingly connect these systems with population genomics, phylogenomics and comparative evolutionary analyses, especially where sampling can be designed around replicated evolutionary questions.</p>
+      <p class="aboutLead">I study freshwater fish diversity, species boundaries and biogeographic history using field collections, morphology, molecular data and GIS.</p>
+      <p>My work is centered on geographically structured systems and specimen-linked material that can be revisited as new taxonomic and evolutionary questions emerge.</p>
       <p class="aboutIdentity"><strong>Papanin Institute for Biology of Inland Waters</strong><br>Russian Academy of Sciences</p>
       <div class="contactLine">
         <a class="primary" href="mailto:oleg@olegartaev.com">oleg@olegartaev.com</a>
