@@ -361,6 +361,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.30);
   transform:translateY(-50%) scale(1.04)
 }
+.lightboxNav[hidden]{display:none}
 .lightboxNav span{
   display:block;font:300 39px/1 Arial,sans-serif;transform:translateY(-2px)
 }
@@ -683,8 +684,19 @@ const nativeBtn=document.getElementById('lightboxNative');
 const closeBtn=document.getElementById('lightboxClose');
 const prevBtn=document.getElementById('lightboxPrev');
 const nextBtn=document.getElementById('lightboxNext');
-const gallery=[...document.querySelectorAll('.zoomable')];
+const zoomables=[...document.querySelectorAll('.zoomable')];
+let currentGallery=[];
 let currentImageIndex=-1;
+
+function galleryFor(anchor){
+  const group=anchor.closest('.fieldGrid,.imagingPreviews');
+  return group ? [...group.querySelectorAll('.zoomable')] : [anchor];
+}
+function updateGalleryNav(){
+  const show=currentGallery.length>1;
+  prevBtn.hidden=!show;
+  nextBtn.hidden=!show;
+}
 
 function centerNativeView(){
   const center=()=>{
@@ -727,9 +739,9 @@ function setLightboxZoom(native){
   }
 }
 function showGalleryImage(index){
-  if(!gallery.length)return;
-  currentImageIndex=(index+gallery.length)%gallery.length;
-  const a=gallery[currentImageIndex];
+  if(!currentGallery.length)return;
+  currentImageIndex=(index+currentGallery.length)%currentGallery.length;
+  const a=currentGallery[currentImageIndex];
   const im=a.querySelector('img');
   if(!im)return;
   resetTouchZoom();
@@ -744,16 +756,18 @@ function showGalleryImage(index){
   else big.addEventListener('load',centerFitView,{once:true});
 }
 function stepGallery(direction){
-  if(currentImageIndex<0)return;
+  if(currentImageIndex<0||currentGallery.length<2)return;
   showGalleryImage(currentImageIndex+direction);
 }
-gallery.forEach((a,index)=>{
+zoomables.forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
-    currentImageIndex=index;
+    currentGallery=galleryFor(a);
+    currentImageIndex=currentGallery.indexOf(a);
+    updateGalleryNav();
     lb.classList.add('open');
     document.body.style.overflow='hidden';
-    showGalleryImage(index);
+    showGalleryImage(currentImageIndex);
   });
 });
 function resetTouchZoom(){
@@ -768,7 +782,9 @@ function closeLB(){
   big.classList.remove('fitNative','dragging');
   resetTouchZoom();
   big.src='';
+  currentGallery=[];
   currentImageIndex=-1;
+  updateGalleryNav();
   document.body.style.overflow=''
 }
 fitBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(false)});
@@ -776,6 +792,7 @@ nativeBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(true)
 closeBtn.addEventListener('click',e=>{e.stopPropagation();closeLB()});
 prevBtn.addEventListener('click',e=>{e.stopPropagation();stepGallery(-1)});
 nextBtn.addEventListener('click',e=>{e.stopPropagation();stepGallery(1)});
+updateGalleryNav();
 
 let pan=null;
 let suppressImageClick=false;
@@ -856,7 +873,7 @@ big.addEventListener('touchstart',e=>{
       startY:touchY,
       moved:false
     };
-  }else if(e.touches.length===1&&!lb.classList.contains('native')){
+  }else if(e.touches.length===1&&!lb.classList.contains('native')&&currentGallery.length>1){
     const t=e.touches[0];
     touchGesture={
       mode:'swipe',
