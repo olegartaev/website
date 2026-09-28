@@ -15,7 +15,6 @@ ITEMS = [
     ("field-river-landscape-aerial.jpg", "field-river-landscape-aerial.webp", 1400, "WEBP", 90),
     ("field-basecamp-mountains.jpg", "field-basecamp-mountains.webp", 1400, "WEBP", 90),
     ("field-river-meander.jpg", "field-river-meander.webp", 1400, "WEBP", 90),
-    ("field-vehicle-nets.jpg", "field-vehicle-nets.webp", 1400, "WEBP", 90),
 ]
 
 for src_name, dst_name, max_edge, fmt, quality in ITEMS:
