@@ -1,0 +1,33 @@
+name: Import hero image
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".staging/hero/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct hero image
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .staging/hero/hero-river-aerial-20260928.part* | tr -d '\n\r ' | base64 -d > assets/hero-river-aerial-20260928.jpg
+          echo "507bb3d2011a32c75e7eb157bcfed53941f055b82a359563652f00685b12d437  assets/hero-river-aerial-20260928.jpg" | sha256sum -c -
+      - name: Commit image and clean staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .staging/hero
+          rm -f .github/workflows/import-hero-image.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add new hero river photograph"
+          git push
