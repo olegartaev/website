@@ -320,7 +320,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 }
 .lightbox img{
   max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;
-  pointer-events:auto;cursor:zoom-in;user-select:none
+  pointer-events:auto;cursor:zoom-in;user-select:none;-webkit-user-drag:none
 }
 .lightbox img.fitNative{cursor:zoom-out}
 .lightbox.native .lightboxStage{
@@ -348,6 +348,24 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   color:rgba(255,255,255,.88);background:rgba(255,255,255,.06)
 }
 .lightboxControls .lightboxClose:hover{background:rgba(255,255,255,.14);color:white}
+.lightboxNav{
+  position:fixed;z-index:1002;top:50%;width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,.16);border-radius:50%;
+  background:rgba(7,25,28,.58);color:white;
+  box-shadow:0 8px 28px rgba(0,0,0,.22);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  cursor:pointer;transition:background .18s ease,transform .18s ease,border-color .18s ease
+}
+.lightboxNav:hover{
+  background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.30);
+  transform:translateY(-50%) scale(1.04)
+}
+.lightboxNav span{
+  display:block;font:300 39px/1 Arial,sans-serif;transform:translateY(-2px)
+}
+.lightboxPrev{left:22px}
+.lightboxNext{right:22px}
 
 @media(max-width:980px){
   .sectionHead{grid-template-columns:1fr;gap:16px}
@@ -404,6 +422,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .toolShot{width:100%;max-width:none}
   .foot{flex-direction:column}
   .lightbox img{touch-action:none}
+  .lightboxNav{display:none}
 }
 </style>
 </head>
@@ -644,6 +663,12 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
     <button type="button" id="lightboxNative">100%</button>
     <button type="button" id="lightboxClose" class="lightboxClose" aria-label="Close image" title="Close">×</button>
   </div>
+  <button type="button" class="lightboxNav lightboxPrev" id="lightboxPrev" aria-label="Previous image" title="Previous image">
+    <span aria-hidden="true">‹</span>
+  </button>
+  <button type="button" class="lightboxNav lightboxNext" id="lightboxNext" aria-label="Next image" title="Next image">
+    <span aria-hidden="true">›</span>
+  </button>
   <div class="lightboxStage" id="lightboxStage">
     <img id="lightboxImage" alt="">
   </div>
@@ -656,12 +681,18 @@ const big=document.getElementById('lightboxImage');
 const fitBtn=document.getElementById('lightboxFit');
 const nativeBtn=document.getElementById('lightboxNative');
 const closeBtn=document.getElementById('lightboxClose');
+const prevBtn=document.getElementById('lightboxPrev');
+const nextBtn=document.getElementById('lightboxNext');
+const gallery=[...document.querySelectorAll('.zoomable')];
+let currentImageIndex=-1;
 
 function centerNativeView(){
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    lb.scrollLeft=Math.max(0,big.offsetLeft+big.offsetWidth/2-lb.clientWidth/2);
-    lb.scrollTop=Math.max(0,big.offsetTop+big.offsetHeight/2-lb.clientHeight/2);
-  }));
+  const center=()=>{
+    lb.scrollLeft=Math.max(0,(lb.scrollWidth-lb.clientWidth)/2);
+    lb.scrollTop=Math.max(0,(lb.scrollHeight-lb.clientHeight)/2);
+  };
+  requestAnimationFrame(()=>requestAnimationFrame(center));
+  setTimeout(center,80);
 }
 function centerFitView(){
   requestAnimationFrame(()=>{
@@ -687,24 +718,42 @@ function setLightboxZoom(native){
   nativeBtn.classList.toggle('active',native);
   big.classList.remove('fitNative');
   if(native){
-    if(big.complete) centerNativeView();
+    if(big.complete&&big.naturalWidth) centerNativeView();
     else big.addEventListener('load',centerNativeView,{once:true});
   }else{
     lb.scrollTo(0,0);
-    if(big.complete) centerFitView();
+    if(big.complete&&big.naturalWidth) centerFitView();
     else big.addEventListener('load',centerFitView,{once:true});
   }
 }
-document.querySelectorAll('.zoomable').forEach(a=>{
+function showGalleryImage(index){
+  if(!gallery.length)return;
+  currentImageIndex=(index+gallery.length)%gallery.length;
+  const a=gallery[currentImageIndex];
+  const im=a.querySelector('img');
+  if(!im)return;
+  resetTouchZoom();
+  lb.classList.remove('native');
+  big.classList.remove('fitNative','dragging');
+  fitBtn.classList.add('active');
+  nativeBtn.classList.remove('active');
+  lb.scrollTo(0,0);
+  big.src=a.getAttribute('href')||im.src;
+  big.alt=im.alt||'';
+  if(big.complete&&big.naturalWidth) centerFitView();
+  else big.addEventListener('load',centerFitView,{once:true});
+}
+function stepGallery(direction){
+  if(currentImageIndex<0)return;
+  showGalleryImage(currentImageIndex+direction);
+}
+gallery.forEach((a,index)=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
-    const im=a.querySelector('img');
-    if(!im)return;
-    big.src=a.getAttribute('href')||im.src;
-    big.alt=im.alt||'';
+    currentImageIndex=index;
     lb.classList.add('open');
     document.body.style.overflow='hidden';
-    setLightboxZoom(false);
+    showGalleryImage(index);
   });
 });
 function resetTouchZoom(){
@@ -719,11 +768,14 @@ function closeLB(){
   big.classList.remove('fitNative','dragging');
   resetTouchZoom();
   big.src='';
+  currentImageIndex=-1;
   document.body.style.overflow=''
 }
 fitBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(false)});
 nativeBtn.addEventListener('click',e=>{e.stopPropagation();setLightboxZoom(true)});
 closeBtn.addEventListener('click',e=>{e.stopPropagation();closeLB()});
+prevBtn.addEventListener('click',e=>{e.stopPropagation();stepGallery(-1)});
+nextBtn.addEventListener('click',e=>{e.stopPropagation();stepGallery(1)});
 
 let pan=null;
 let suppressImageClick=false;
@@ -804,6 +856,16 @@ big.addEventListener('touchstart',e=>{
       startY:touchY,
       moved:false
     };
+  }else if(e.touches.length===1&&!lb.classList.contains('native')){
+    const t=e.touches[0];
+    touchGesture={
+      mode:'swipe',
+      startClientX:t.clientX,
+      startClientY:t.clientY,
+      lastClientX:t.clientX,
+      lastClientY:t.clientY,
+      moved:false
+    };
   }
 },{passive:false});
 
@@ -839,15 +901,34 @@ big.addEventListener('touchmove',e=>{
     touchGesture.moved=true;
     suppressImageClick=true;
     applyTouchTransform();
+  }else if(touchGesture.mode==='swipe'&&e.touches.length===1){
+    const t=e.touches[0];
+    touchGesture.lastClientX=t.clientX;
+    touchGesture.lastClientY=t.clientY;
+    const dx=t.clientX-touchGesture.startClientX;
+    const dy=t.clientY-touchGesture.startClientY;
+    if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)){
+      e.preventDefault();
+      touchGesture.moved=true;
+      suppressImageClick=true;
+    }
   }
 },{passive:false});
 
 big.addEventListener('touchend',e=>{
   if(window.innerWidth>760)return;
   if(e.touches.length===0){
-    const moved=touchGesture&&touchGesture.moved;
+    const gesture=touchGesture;
     touchGesture=null;
-    if(moved||suppressImageClick){
+    if(gesture&&gesture.mode==='swipe'){
+      const dx=gesture.lastClientX-gesture.startClientX;
+      const dy=gesture.lastClientY-gesture.startClientY;
+      if(Math.abs(dx)>=55&&Math.abs(dx)>Math.abs(dy)*1.2){
+        stepGallery(dx<0?1:-1);
+        suppressImageClick=true;
+      }
+    }
+    if((gesture&&gesture.moved)||suppressImageClick){
       suppressImageClick=true;
       setTimeout(()=>{suppressImageClick=false},320);
     }
@@ -874,8 +955,17 @@ big.addEventListener('click',e=>{
   setLightboxZoom(true);
 });
 lb.addEventListener('click',e=>{if(e.target===lb||e.target===stage)closeLB()});
-window.addEventListener('resize',()=>{if(lb.classList.contains('open')&&!lb.classList.contains('native'))updateFitState()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+window.addEventListener('resize',()=>{
+  if(!lb.classList.contains('open'))return;
+  if(lb.classList.contains('native'))centerNativeView();
+  else updateFitState();
+});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLB();
+  else if(e.key==='ArrowLeft'){e.preventDefault();stepGallery(-1)}
+  else if(e.key==='ArrowRight'){e.preventDefault();stepGallery(1)}
+});
 </script>
 <script data-goatcounter="https://siygal.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
