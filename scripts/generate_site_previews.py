@@ -8,6 +8,8 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 ITEMS = [
     ("field-sampling.webp", "field-sampling.webp", 1920, "WEBP", 94),
+    ("field-sampling-riverbank.jpg", "field-sampling-riverbank.webp", 1400, "WEBP", 90),
+    ("field-camp-aerial.jpg", "field-camp-aerial.webp", 1400, "WEBP", 90),
     ("live-imaging-phoxinus-isetensis.jpg", "live-imaging-phoxinus-isetensis.jpg", 2000, "JPEG", 95),
     ("live-imaging-barbatula-sp.jpg", "live-imaging-barbatula-sp.jpg", 2000, "JPEG", 95),
     ("field-river-landscape-aerial.jpg", "field-river-landscape-aerial.webp", 1400, "WEBP", 90),
