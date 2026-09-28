@@ -8,14 +8,12 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 ITEMS = [
     ("field-sampling.webp", "field-sampling.webp", 1920, "WEBP", 94),
-    ("habitat-mountain.webp", "habitat-mountain.webp", 1920, "WEBP", 94),
-    ("habitat-forest.webp", "habitat-forest.webp", 1920, "WEBP", 94),
     ("live-imaging-phoxinus-isetensis.jpg", "live-imaging-phoxinus-isetensis.jpg", 2000, "JPEG", 95),
     ("live-imaging-barbatula-sp.jpg", "live-imaging-barbatula-sp.jpg", 2000, "JPEG", 95),
-    ("field-sampling-riverbank.jpg", "field-sampling-riverbank.webp", 1400, "WEBP", 90),
     ("field-river-landscape-aerial.jpg", "field-river-landscape-aerial.webp", 1400, "WEBP", 90),
-    ("field-camp-aerial.jpg", "field-camp-aerial.webp", 1400, "WEBP", 90),
     ("field-basecamp-mountains.jpg", "field-basecamp-mountains.webp", 1400, "WEBP", 90),
+    ("field-river-meander.jpg", "field-river-meander.webp", 1400, "WEBP", 90),
+    ("field-vehicle-nets.jpg", "field-vehicle-nets.webp", 1400, "WEBP", 90),
 ]
 
 for src_name, dst_name, max_edge, fmt, quality in ITEMS:
