@@ -296,9 +296,19 @@ nav{
   box-shadow:0 7px 18px rgba(10,35,40,.07)
 }
 /* about */
-.aboutSimple{max-width:760px}
-.aboutSimple .eyebrow{margin-bottom:10px}
-.aboutSimple h2{font-size:clamp(27px,2.7vw,36px);margin-bottom:7px}
+.aboutGrid{
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);
+  gap:42px;align-items:center
+}
+.aboutPhoto{
+  overflow:hidden;border-radius:10px;background:#dfe8e4;aspect-ratio:3/2
+}
+.aboutPhoto img{
+  width:100%;height:100%;object-fit:cover;object-position:center 48%
+}
+.aboutCopy{max-width:620px}
+.aboutCopy .eyebrow{margin-bottom:10px}
+.aboutCopy h2{font-size:clamp(27px,2.7vw,36px);margin-bottom:7px}
 .aboutLead{font-size:15px!important;line-height:1.5;color:var(--ink);margin-bottom:17px}
 .aboutIdentity{
   margin:0;padding-top:16px;border-top:1px solid #cedbd6;
@@ -634,15 +644,20 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 </section>
 
 <section class="section" id="about">
-  <div class="wrap aboutSimple">
-    <div class="eyebrow">About</div>
-    <h2>Oleg Artaev</h2>
-    <p class="aboutLead">Ichthyologist</p>
-    <p class="aboutIdentity"><strong>Candidate of Biological Sciences (PhD-equivalent degree)</strong><br>Senior Research Scientist · Papanin Institute for Biology of Inland Waters<br>Russian Academy of Sciences</p>
-    <div class="contactLine">
-      <a href="mailto:artaev@gmail.com">artaev@gmail.com</a>
-      <a href="https://scholar.google.com/citations?hl=en&amp;user=NCxOTqcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
-      <a href="https://www.researchgate.net/profile/Oleg-Artaev" target="_blank" rel="noopener">ResearchGate ↗</a>
+  <div class="wrap aboutGrid">
+    <div class="aboutPhoto">
+      <img src="assets/about-field-20260927.jpg" width="1536" height="1022" loading="lazy" decoding="async" alt="Fieldwork in a mountain landscape">
+    </div>
+    <div class="aboutCopy">
+      <div class="eyebrow">About</div>
+      <h2>Oleg Artaev</h2>
+      <p class="aboutLead">Ichthyologist</p>
+      <p class="aboutIdentity"><strong>Candidate of Biological Sciences (PhD-equivalent degree)</strong><br>Senior Research Scientist · Papanin Institute for Biology of Inland Waters<br>Russian Academy of Sciences</p>
+      <div class="contactLine">
+        <a href="mailto:artaev@gmail.com">artaev@gmail.com</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=NCxOTqcAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://www.researchgate.net/profile/Oleg-Artaev" target="_blank" rel="noopener">ResearchGate ↗</a>
+      </div>
     </div>
   </div>
 </section>
