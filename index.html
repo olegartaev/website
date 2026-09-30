@@ -215,6 +215,30 @@ nav{
   color:white;font-size:9.5px;font-weight:700
 }
 
+/* research overview */
+.researchOverview{
+  padding-top:56px;padding-bottom:58px
+}
+.researchOverviewGrid{
+  display:grid;grid-template-columns:170px minmax(0,760px);
+  gap:52px;align-items:start
+}
+.researchOverviewGrid>.eyebrow{padding-top:5px}
+.researchOverviewLead{
+  margin:0 0 25px;
+  font-size:17px;line-height:1.62;color:var(--ink);max-width:720px
+}
+.researchThemes{
+  display:grid;grid-template-columns:1fr 1fr;gap:34px;
+  border-top:1px solid var(--line);padding-top:20px
+}
+.researchTheme h3{
+  margin:0 0 7px;font-size:16px;line-height:1.3;letter-spacing:-.018em
+}
+.researchTheme p{
+  margin:0;max-width:340px;font-size:13.5px;line-height:1.55;color:#65797b
+}
+
 /* current project */
 .projectStrip{
   display:grid;grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
@@ -362,6 +386,9 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
 .lightboxCredit[hidden]{display:none}
 
 @media(max-width:980px){
+  .researchOverviewGrid{grid-template-columns:1fr;gap:16px}
+  .researchThemes{grid-template-columns:1fr 1fr}
+
   .sectionHead{grid-template-columns:1fr;gap:16px}
   .aboutGrid{grid-template-columns:1fr;gap:26px}
   .researchGrid,.pubGrid{grid-template-columns:1fr}
@@ -371,6 +398,10 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   .imagingInline{grid-template-columns:1fr;gap:14px}
 }
 @media(max-width:760px){
+  .researchOverview{padding-top:48px;padding-bottom:52px}
+  .researchOverviewLead{font-size:16px;margin-bottom:21px}
+  .researchThemes{grid-template-columns:1fr;gap:18px}
+
   .wrap{width:calc(100% - 30px)}
   .navin{height:64px}
   .navlinks{display:none}
@@ -425,7 +456,7 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
   <div class="wrap navin">
     <a class="navBrand" href="#top" aria-label="Oleg Artaev — home">Oleg Artaev</a>
     <div class="navlinks">
-      <a href="#project">Research</a>
+      <a href="#research">Research</a>
       <a href="#work">Publications</a>
       <a href="#coverage">Field</a>
       <a href="#tools">Tools</a>
@@ -443,6 +474,26 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
       <h1>Evolutionary history of Eurasian freshwater fishes across changing river systems.</h1>
       <p class="heroRole">Oleg Artaev · Ichthyologist</p>
       <p class="heroStatement">Phylogeography · biogeography · integrative taxonomy</p>
+    </div>
+  </div>
+</section>
+
+<section class="section researchOverview" id="research">
+  <div class="wrap researchOverviewGrid">
+    <div class="eyebrow">Research</div>
+    <div class="researchOverviewBody">
+      <p class="researchOverviewLead">Research focuses on the historical and geographic structure of freshwater fish diversity and on integrating independent evidence from morphology, molecular data and distributions.</p>
+
+      <div class="researchThemes">
+        <div class="researchTheme">
+          <h3>Phylogeography &amp; biogeography</h3>
+          <p>Reconstructing how isolation, connectivity and drainage history have shaped freshwater fish lineages and distributions.</p>
+        </div>
+        <div class="researchTheme">
+          <h3>Integrative evidence</h3>
+          <p>Combining morphology, molecular data, distributions and geographic context when no single source of evidence is sufficient.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
