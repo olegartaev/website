@@ -311,6 +311,7 @@ nav{
   display:block;width:100%;height:auto;border-radius:7px;
   box-shadow:0 7px 18px rgba(10,35,40,.07)
 }
+.toolGalleryExtra{display:none}
 /* about */
 .aboutGrid{
   display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);
@@ -656,8 +657,11 @@ footer{background:#081f23;color:#95a8a9;padding:30px 0}
         </div>
       </div>
 
-      <a class="toolShot zoomable" href="assets/morpholabel-landmarks-20260926.jpg">
-        <img src="assets/morpholabel-landmarks-20260926.jpg" width="1891" height="932" loading="lazy" decoding="async" alt="MorphoLabel landmark annotation interface">
+      <a class="toolShot zoomable" href="assets/morpholabel-landmarks-20261006.jpg" data-gallery="morpholabel">
+        <img src="assets/morpholabel-landmarks-20261006.jpg" width="1618" height="924" loading="lazy" decoding="async" alt="MorphoLabel landmark annotation and review interface on a fish image">
+      </a>
+      <a class="zoomable toolGalleryExtra" href="assets/morpholabel-xray-20261006.jpg" data-gallery="morpholabel" aria-hidden="true" tabindex="-1">
+        <img src="assets/morpholabel-xray-20261006.jpg" width="1618" height="924" loading="lazy" decoding="async" alt="MorphoLabel X-ray structure annotation and review interface">
       </a>
     </div>
   </div>
@@ -724,6 +728,8 @@ let currentGallery=[];
 let currentImageIndex=-1;
 
 function galleryFor(anchor){
+  const namedGallery=anchor.dataset.gallery;
+  if(namedGallery)return zoomables.filter(item=>item.dataset.gallery===namedGallery);
   const group=anchor.closest('.fieldGrid,.imagingPreviews');
   return group ? [...group.querySelectorAll('.zoomable')] : [anchor];
 }
